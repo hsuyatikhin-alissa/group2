@@ -4,69 +4,15 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class TopNPopulatedCitiesInADistrict {
+    private String district = "Noord-Holland";
+    private int limit = 5;
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    private Connection con;
 
-    /**
-     * Connect to the MySQL database.
-     */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
+    public void setCon(Connection con) {
+        this.con = con;
     }
 
     /**
@@ -86,9 +32,9 @@ public class TopNPopulatedCitiesInADistrict {
                             + "FROM city "
                             + "JOIN country country "
                             + "ON country.Code = city.CountryCode "
-                            + "WHERE city.District = 'Herat' "
+                            + "WHERE city.District = '" + district + "'\n"
                             + "ORDER BY city.Population DESC "
-                            + "LIMIT 5 ";
+                            + "LIMIT " + limit + ";";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -123,15 +69,17 @@ public class TopNPopulatedCitiesInADistrict {
     public void printCities(ArrayList<City> cities)
     {
         // Print header
-        System.out.println("Top 5 Populated cities in a district");
-        System.out.println(String.format("%-10s %-20s %-20s %s", "Name", "Country", "District", "Population"));
+        System.out.println("16. The Top " + limit + " Populated cities in " + district + " district");
+        System.out.println();
+        System.out.println(String.format("%-30s %-20s %-20s %s", "Name", "Country", "District", "Population"));
         // Loop over all cities in the list
         for (City cty : cities)
         {
             String cty_string =
-                    String.format("%-10s %-20s %-20s %s",
+                    String.format("%-30s %-20s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
+        System.out.println();
     }
 }
