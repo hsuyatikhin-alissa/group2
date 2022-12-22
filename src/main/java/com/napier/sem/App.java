@@ -27,37 +27,37 @@ public class App
         // Disconnect from database
         //conn.disconnect();
 
-//        //The top N populated cities in a continent where N is provided by the user.
-//
-//        // Create new Application
-//        TopNPopulatedCitiesInAContinent tcon = new TopNPopulatedCitiesInAContinent();
-//
-//        // Connect to database
-//        tcon.connect();
-//
-//        ArrayList<City> tccon = tcon.getAllCities();
-//
-//        // Extract employee salary information
-//        tcon.printCities(tccon);
-//
-//        // Disconnect from database
-//        tcon.disconnect();
 
-     //The top N populated cities in a region where N is provided by the user.
+     //The top N populated countries in a continent where N is provided by the user.
 
          //Create new Application
-        TopNPopulatedCountriesinacontinent treg = new TopNPopulatedCountriesinacontinent();
+        //TopNPopulatedCountriesinacontinent treg = new TopNPopulatedCountriesinacontinent();
          //Connect to database
+        //treg.connect();
+
+        //ArrayList<Country> countries = treg.getAllCountries();
+
+         //Extract employee salary information
+        //treg.printCountries(countries);
+
+         //Disconnect from database
+        //treg.disconnect();
+
+
+        //The top N populated countries in the world where N is provided by the user.
+
+        //Create new Application
+        TopNPopulatedCountriesintheworld treg = new TopNPopulatedCountriesintheworld();
+        //Connect to database
         treg.connect();
 
         ArrayList<Country> countries = treg.getAllCountries();
 
-         //Extract employee salary information
+        //Extract employee salary information
         treg.printCountries(countries);
 
-         //Disconnect from database
+        //Disconnect from database
         treg.disconnect();
-
 
     }
 
