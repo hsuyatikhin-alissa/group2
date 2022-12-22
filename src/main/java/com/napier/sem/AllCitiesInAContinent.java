@@ -5,21 +5,78 @@ import java.util.ArrayList;
 
 public class AllCitiesInAContinent {
 
-    private String continent = "Asia";
+    /**
+     * Connection to MySQL database.
+     */
+    private Connection con = null;
 
-    private Connection con;
+    /**
+     * Connect to the MySQL database.
+     */
+    public void connect()
+    {
+        try
+        {
+            // Load Database driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
 
-    public void setCon(Connection con) {
-        this.con = con;
+        int retries = 10;
+        for (int i = 0; i < retries; ++i)
+        {
+            System.out.println("Connecting to database...");
+            try
+            {
+                // Wait a bit for db to start
+                Thread.sleep(30000);
+                // Connect to database
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                System.out.println("Successfully connected");
+                break;
+            }
+            catch (SQLException sqle)
+            {
+                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            }
+            catch (InterruptedException ie)
+            {
+                System.out.println("Thread interrupted? Should not happen.");
+            }
+        }
     }
 
     /**
-     * Get all the cities in a continent organised by largest population to smallest.
-     * @return A list of all the cities in a continent organised by largest population to smallest, or null if there is an error.
+     * Disconnect from the MySQL database.
      */
-    public ArrayList<City> getAllCitiesInAContinent()
+    public void disconnect()
     {
+        if (con != null)
+        {
+            try
+            {
+                // Close connection
+                con.close();
+            }
+            catch (Exception e)
+            {
+                System.out.println("Error closing connection to database");
+            }
+        }
+    }
 
+
+    /**
+     * Gets all the current employees and salaries.
+     * @return A list of all employees and salaries, or null if there is an error.
+     */
+    public ArrayList<City> getAllCities()
+    {
         try
         {
             // Create an SQL statement
@@ -28,11 +85,11 @@ public class AllCitiesInAContinent {
             String strSelect =
                     "SELECT city.Name, country.Name, country.Continent, city.District, city.Population "
                             + "FROM city, country "
-                            + "WHERE city.CountryCode = country.Code && country.Continent = '" + continent + "'\n"
-                            + "ORDER BY city.Population DESC ";
+                            + "WHERE city.CountryCode = country.Code "
+                            + "ORDER BY country.Continent ASC, city.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract all the cities in a continent organised by largest population to smallest
+            // Extract employee information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -58,38 +115,21 @@ public class AllCitiesInAContinent {
 
 
     /**
-     * Prints a list of cities.
-     * @param cities The list of cities to print.
+     * Prints a list of employees.
+     * @param cities The list of employees to print.
      */
-    public void printCitiesInAContinent(ArrayList<City> cities)
+    public void printCities(ArrayList<City> cities)
     {
-
-        // Check cities is not null
-        if (cities == null)
-        {
-            System.out.println("No cities");
-            return;
-        }
-
         // Print header
-        System.out.println();
-        System.out.println("8. All the cities in " + continent + " organised by largest population to smallest.");
-        System.out.println();
-
         System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
-        System.out.println(" ");
-        // Loop over all cities in the list
+        // Loop over all employees in the list
         for (City cty : cities)
         {
-            if (cty == null)
-                continue;
-
             String cty_string =
                     String.format("%-30s %-30s %-20s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
-        System.out.println();
     }
 
 
