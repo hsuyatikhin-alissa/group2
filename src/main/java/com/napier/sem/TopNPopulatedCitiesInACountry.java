@@ -67,6 +67,11 @@ public class TopNPopulatedCitiesInACountry {
      */
     public void printCities(ArrayList<City> cities)
     {
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println("15. The Top " + limit + " Populated cities in " + name + " country");
         System.out.println();
@@ -74,6 +79,8 @@ public class TopNPopulatedCitiesInACountry {
         // Loop over all cities in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
             String cty_string =
                     String.format("%-20s %-30s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());

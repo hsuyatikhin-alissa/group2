@@ -63,6 +63,11 @@ public class AllCitiesInADistrict {
      */
     public void printCities(ArrayList<City> cities)
     {
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println("11. All the cities in " + district + " district organised by largest population to smallest");
         System.out.println();
@@ -70,6 +75,8 @@ public class AllCitiesInADistrict {
         // Loop over all employees in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
             String cty_string =
                     String.format("%-30s %-20s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());
