@@ -14,18 +14,18 @@ public class App
 //    //All the countries in a continent organised by largest population to smallest.
 //
         // Create new Application
-        AllCountriesInAContinent conn = new AllCountriesInAContinent();
+        //AllCountriesInAContinent conn = new AllCountriesInAContinent();
 
         // Connect to database
-        conn.connect();
+        //conn.connect();
 
-        ArrayList<Country> countries = conn.getAllCountries();
+        //ArrayList<Country> countries = conn.getAllCountries();
 
         // Extract employee salary information
-        conn.printCountries(countries);
+        //conn.printCountries(countries);
 
         // Disconnect from database
-        conn.disconnect();
+        //conn.disconnect();
 
 //        //The top N populated cities in a continent where N is provided by the user.
 //
@@ -43,20 +43,20 @@ public class App
 //        // Disconnect from database
 //        tcon.disconnect();
 
-    // The top N populated cities in a region where N is provided by the user.
+     //The top N populated cities in a region where N is provided by the user.
 
-        // Create new Application
-        //TopNPopulatedCitiesInARegion treg = new TopNPopulatedCitiesInARegion();
-        // Connect to database
-        //treg.connect();
+         //Create new Application
+        TopNPopulatedCountriesinacontinent treg = new TopNPopulatedCountriesinacontinent();
+         //Connect to database
+        treg.connect();
 
-        //ArrayList<City> tccreg = treg.getAllCities();
+        ArrayList<Country> countries = treg.getAllCountries();
 
-        // Extract employee salary information
-        //treg.printCities(tccreg);
+         //Extract employee salary information
+        treg.printCountries(countries);
 
-        // Disconnect from database
-        //treg.disconnect();
+         //Disconnect from database
+        treg.disconnect();
 
 
     }

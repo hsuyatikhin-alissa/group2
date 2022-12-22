@@ -5,21 +5,74 @@ import java.util.ArrayList;
 
 public class TopNPopulatedCountriesinacontinent {
 
-    private String continent = "Asia";
-    private int limit = 5;
-
     /**
      * Connection to MySQL database.
      */
-    private Connection con;
+    private Connection con = null;
 
-    public void setCon(Connection con) {
-        this.con = con;
+    /**
+     * Connect to the MySQL database.
+     */
+    public void connect()
+    {
+        try
+        {
+            // Load Database driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
+
+        int retries = 10;
+        for (int i = 0; i < retries; ++i)
+        {
+            System.out.println("Connecting to database...");
+            try
+            {
+                // Wait a bit for db to start
+                Thread.sleep(30000);
+                // Connect to database
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                System.out.println("Successfully connected");
+                break;
+            }
+            catch (SQLException sqle)
+            {
+                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            }
+            catch (InterruptedException ie)
+            {
+                System.out.println("Thread interrupted? Should not happen.");
+            }
+        }
     }
 
     /**
-     * Gets all Top N populated countries in a continent.
-     * @return A list of all Top N populated countries in a continent, or null if there is an error.
+     * Disconnect from the MySQL database.
+     */
+    public void disconnect()
+    {
+        if (con != null)
+        {
+            try
+            {
+                // Close connection
+                con.close();
+            }
+            catch (Exception e)
+            {
+                System.out.println("Error closing connection to database");
+            }
+        }
+    }
+
+    /**
+     * Gets all Top N populated countries in the world.
+     * @return A list of all Top N populated countries in the world, or null if there is an error.
      */
     public ArrayList<Country> getAllCountries()
     {
@@ -29,12 +82,11 @@ public class TopNPopulatedCountriesinacontinent {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, capitalCity.Name AS Capital "
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
                             + "FROM country "
-                            + "JOIN city capitalCity ON capitalCity.ID = country.Capital "
-                            + "WHERE country.Continent = '" + continent + "'\n"
+                            + "WHERE country.Continent = 'Asia' "
                             + "ORDER BY country.Population DESC "
-                            + "LIMIT " + limit + ";";
+                            + "LIMIT 3 ";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -48,7 +100,7 @@ public class TopNPopulatedCountriesinacontinent {
                 cntry.setContinent(rset.getString(3));
                 cntry.setRegion(rset.getString(4));
                 cntry.setPopulation(rset.getInt(5));
-                cntry.setCapital(rset.getString(6));
+                cntry.setCapital(rset.getInt(6));
                 countries.add(cntry);
             }
             return countries;
@@ -63,33 +115,23 @@ public class TopNPopulatedCountriesinacontinent {
 
 
     /**
-     * Prints a list of all Top N populated countries in a continent.
-     * @param countries The list of all Top N populated countries in a continent to print.
+     * Prints a list of all Top N populated countries in the world.
+     * @param countries The list of all Top N populated countries in the world to print.
      */
     public void printCountries(ArrayList<Country> countries)
     {
-        // Check Countries is not null
-        if (countries == null)
-        {
-            System.out.println("No countries");
-            return;
-        }
         // Print header
-        System.out.println("5. The top " + limit + " populated countries in " + continent + ".");
-        System.out.println();
-        System.out.println(String.format("%-5s %-45s %-25s %-35s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        System.out.println(String.format("%-5s %-45s %-25s %-25s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
-            if (cntry == null)
-                continue;
             String cntry_string =
-                    String.format("%-5s %-45s %-25s %-35s %-25s %-25s",
+                    String.format("%-5s %-45s %-25s %-25s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
             System.out.println(cntry_string);
         }
-        System.out.println();
     }
+
 
 }
 
