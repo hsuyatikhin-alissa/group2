@@ -70,61 +70,11 @@ public class AllCitiesInAContinent {
         }
     }
 
-
-//    public City getCity(int ID)
-//    {
-//        try
-//        {
-//            // Create an SQL statement
-//            Statement stmt = con.createStatement();
-//            // Create string for SQL statement
-//            String strSelect =
-//                    "SELECT ID, Name, District, Population "
-//                            + "FROM city "
-//                            + "WHERE ID = " + ID;
-//            // Execute SQL statement
-//            ResultSet rset = stmt.executeQuery(strSelect);
-//            // Return new employee if valid.
-//            // Check one is returned
-//            if (rset.next())
-//            {
-//                City cty = new City();
-//                cty.setID(rset.getInt("ID"));
-//                cty.setName(rset.getString("Name"));
-//                cty.setDistrict(rset.getString("District"));
-//                cty.setPopulation(rset.getInt("Population"));
-//                return cty;
-//            }
-//            else
-//                return null;
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//            System.out.println("Failed to get City details");
-//            return null;
-//        }
-//    }
-//
-//
-//    public void displayCity(City cty)
-//    {
-//        if (cty != null)
-//        {
-//            System.out.println(
-//                    cty.getID() + " "
-//                            + cty.getName() + " "
-//                            + cty.getDistrict() + " "
-//                            + cty.getPopulation() + "\n");
-//        }
-//    }
-
-
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * Get all the cities in a continent organised by largest population to smallest.
+     * @return A list of all the cities in a continent organised by largest population to smallest, or null if there is an error.
      */
-    public ArrayList<City> getAllCities()
+    public ArrayList<City> getAllCitiesInAContinent()
     {
         try
         {
@@ -138,7 +88,7 @@ public class AllCitiesInAContinent {
                             + "ORDER BY country.Continent ASC, city.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract all the cities in a continent organised by largest population to smallest
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -164,14 +114,14 @@ public class AllCitiesInAContinent {
 
 
     /**
-     * Prints a list of employees.
-     * @param cities The list of employees to print.
+     * Prints a list of cities.
+     * @param cities The list of cities to print.
      */
-    public void printCities(ArrayList<City> cities)
+    public void printCitiesInAContinent(ArrayList<City> cities)
     {
         // Print header
         System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
-        // Loop over all employees in the list
+        // Loop over all cities in the list
         for (City cty : cities)
         {
             String cty_string =

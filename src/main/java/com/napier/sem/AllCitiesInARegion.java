@@ -71,60 +71,11 @@ public class AllCitiesInARegion {
     }
 
 
-//    public City getCity(int ID)
-//    {
-//        try
-//        {
-//            // Create an SQL statement
-//            Statement stmt = con.createStatement();
-//            // Create string for SQL statement
-//            String strSelect =
-//                    "SELECT ID, Name, District, Population "
-//                            + "FROM city "
-//                            + "WHERE ID = " + ID;
-//            // Execute SQL statement
-//            ResultSet rset = stmt.executeQuery(strSelect);
-//            // Return new employee if valid.
-//            // Check one is returned
-//            if (rset.next())
-//            {
-//                City cty = new City();
-//                cty.setID(rset.getInt("ID"));
-//                cty.setName(rset.getString("Name"));
-//                cty.setDistrict(rset.getString("District"));
-//                cty.setPopulation(rset.getInt("Population"));
-//                return cty;
-//            }
-//            else
-//                return null;
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//            System.out.println("Failed to get City details");
-//            return null;
-//        }
-//    }
-//
-//
-//    public void displayCity(City cty)
-//    {
-//        if (cty != null)
-//        {
-//            System.out.println(
-//                    cty.getID() + " "
-//                            + cty.getName() + " "
-//                            + cty.getDistrict() + " "
-//                            + cty.getPopulation() + "\n");
-//        }
-//    }
-
-
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * Gets all the cities in a region organised by largest population to smallest.
+     * @return A list of all the cities in a region organised by largest population to smallest.
      */
-    public ArrayList<City> getAllCities()
+    public ArrayList<City> getAllCitiesInARegion()
     {
         try
         {
@@ -138,7 +89,7 @@ public class AllCitiesInARegion {
                             + "ORDER BY country.Region ASC, city.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract city information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -167,7 +118,7 @@ public class AllCitiesInARegion {
      * Prints a list of employees.
      * @param cities The list of employees to print.
      */
-    public void printCities(ArrayList<City> cities)
+    public void printCitiesInARegion(ArrayList<City> cities)
     {
         // Print header
         System.out.println(String.format("%-30s %-30s %-80s %-30s %s", "Name", "Country", "Region", "District", "Population"));
