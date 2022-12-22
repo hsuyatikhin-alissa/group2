@@ -47,17 +47,35 @@ public class App
         //The top N populated countries in the world where N is provided by the user.
 
         //Create new Application
-        TopNPopulatedCountriesintheworld treg = new TopNPopulatedCountriesintheworld();
+        //TopNPopulatedCountriesintheworld treg = new TopNPopulatedCountriesintheworld();
         //Connect to database
-        treg.connect();
+        //treg.connect();
 
-        ArrayList<Country> countries = treg.getAllCountries();
+        //ArrayList<Country> countries = treg.getAllCountries();
 
         //Extract employee salary information
-        treg.printCountries(countries);
+        //treg.printCountries(countries);
 
         //Disconnect from database
-        treg.disconnect();
+        //treg.disconnect();
+
+
+        //All the cities in a country organised by largest population to smallest.
+
+        // Create new Application
+        AllCitiesInACountry ccon = new AllCitiesInACountry();
+
+        // Connect to database
+        ccon.connect();
+
+        ArrayList<City> cities = ccon.getAllCities();
+
+        // Extract All the cities in a country information
+        ccon.printCities(cities);
+
+        // Disconnect from database
+        ccon.disconnect();
+
 
     }
 
