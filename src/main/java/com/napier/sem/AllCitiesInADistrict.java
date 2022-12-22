@@ -3,8 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AllCitiesInAContinent {
-
+public class AllCitiesInADistrict {
     /**
      * Connection to MySQL database.
      */
@@ -70,10 +69,9 @@ public class AllCitiesInAContinent {
         }
     }
 
-
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * All the cities in a district organised by largest population to smallest.
+     * @return A list of all cities and country, or null if there is an error.
      */
     public ArrayList<City> getAllCities()
     {
@@ -86,10 +84,10 @@ public class AllCitiesInAContinent {
                     "SELECT city.Name, country.Name, country.Continent, city.District, city.Population "
                             + "FROM city, country "
                             + "WHERE city.CountryCode = country.Code "
-                            + "ORDER BY country.Continent ASC, city.Population DESC ";
+                            + "ORDER BY city.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract cities information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -115,12 +113,13 @@ public class AllCitiesInAContinent {
 
 
     /**
-     * Prints a list of employees.
-     * @param cities The list of employees to print.
+     * Prints a list of cities.
+     * @param cities The list of cities and countries to print.
      */
     public void printCities(ArrayList<City> cities)
     {
         // Print header
+        System.out.println("All the cities in a district organised by largest population to smallest");
         System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
         // Loop over all employees in the list
         for (City cty : cities)
@@ -131,6 +130,4 @@ public class AllCitiesInAContinent {
             System.out.println(cty_string);
         }
     }
-
-
 }

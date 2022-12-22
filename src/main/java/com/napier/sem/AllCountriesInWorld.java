@@ -3,8 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AllCitiesInAContinent {
-
+public class AllCountriesInWorld {
     /**
      * Connection to MySQL database.
      */
@@ -70,67 +69,51 @@ public class AllCitiesInAContinent {
         }
     }
 
-
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * All the countries in the world organised by largest population to smallest.
      */
-    public ArrayList<City> getAllCities()
-    {
-        try
-        {
+    public ArrayList<Country> getAllCountries() {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, country.Continent, city.District, city.Population "
-                            + "FROM city, country "
-                            + "WHERE city.CountryCode = country.Code "
-                            + "ORDER BY country.Continent ASC, city.Population DESC ";
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital FROM country ORDER BY country.Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
-            ArrayList<City> cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City cty = new City();
+            // Extract countries information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next()) {
                 Country cntry = new Country();
-                cty.setName(rset.getString(1));
-                cntry.setName(rset.getString(2));
-                cntry.setContinent(rset.getString(3));
-                cty.setDistrict(rset.getString(4));
-                cty.setPopulation(rset.getInt(5));
-                cty.setCountry(cntry);
-                cities.add(cty);
+                cntry.setCode(rset.getString("Code"));
+                cntry.setName(rset.getString("Name"));
+                cntry.setContinent(rset.getString("Continent"));
+                cntry.setRegion(rset.getString("Region"));
+                cntry.setPopulation(rset.getInt("Population"));
+                cntry.setCapital(rset.getInt("Capital"));
+                countries.add(cntry);
             }
-            return cities;
-        }
-        catch (Exception e)
-        {
+            return countries;
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
+            System.out.println("Failed to get country details");
             return null;
         }
     }
 
-
     /**
-     * Prints a list of employees.
-     * @param cities The list of employees to print.
+     * All the countries in the world organised by largest population to smallest.
      */
-    public void printCities(ArrayList<City> cities)
-    {
+    public void printCountries(ArrayList<Country> countries) {
         // Print header
-        System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
+        System.out.println("All the countries in the world organised by largest population to smallest");
+        System.out.println(String.format("%-15s %-50s %-20s %-35s %-20s %s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all employees in the list
-        for (City cty : cities)
-        {
-            String cty_string =
-                    String.format("%-30s %-30s %-20s %-20s %s",
-                            cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
-            System.out.println(cty_string);
+        for (Country cntry : countries) {
+            String cntry_string =
+                    String.format("%-15s %-50s %-20s %-35s %-20s %s", cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
+            System.out.println(cntry_string);
         }
     }
-
 
 }
