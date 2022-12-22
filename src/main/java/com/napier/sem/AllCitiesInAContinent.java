@@ -71,55 +71,6 @@ public class AllCitiesInAContinent {
     }
 
 
-//    public City getCity(int ID)
-//    {
-//        try
-//        {
-//            // Create an SQL statement
-//            Statement stmt = con.createStatement();
-//            // Create string for SQL statement
-//            String strSelect =
-//                    "SELECT ID, Name, District, Population "
-//                            + "FROM city "
-//                            + "WHERE ID = " + ID;
-//            // Execute SQL statement
-//            ResultSet rset = stmt.executeQuery(strSelect);
-//            // Return new employee if valid.
-//            // Check one is returned
-//            if (rset.next())
-//            {
-//                City cty = new City();
-//                cty.setID(rset.getInt("ID"));
-//                cty.setName(rset.getString("Name"));
-//                cty.setDistrict(rset.getString("District"));
-//                cty.setPopulation(rset.getInt("Population"));
-//                return cty;
-//            }
-//            else
-//                return null;
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//            System.out.println("Failed to get City details");
-//            return null;
-//        }
-//    }
-//
-//
-//    public void displayCity(City cty)
-//    {
-//        if (cty != null)
-//        {
-//            System.out.println(
-//                    cty.getID() + " "
-//                            + cty.getName() + " "
-//                            + cty.getDistrict() + " "
-//                            + cty.getPopulation() + "\n");
-//        }
-//    }
-
-
     /**
      * Gets all the current employees and salaries.
      * @return A list of all employees and salaries, or null if there is an error.
