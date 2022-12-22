@@ -22,8 +22,9 @@ public class AllCountriesInWorld {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Code, country.Name, country.Continent, country.Region, "
-                        + "country.Population, country.Capital FROM country ORDER BY country.Population DESC ";
+                    "SELECT country.Code, country.Name, country.Continent, "
+                            + "country.Region, country.Population, country.Capital "
+                            + "FROM country ORDER BY country.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract countries information
@@ -50,12 +51,20 @@ public class AllCountriesInWorld {
      * All the countries in the world organised by largest population to smallest.
      */
     public void printCountries(ArrayList<Country> countries) {
+        // Check Countries is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         // Print header
         System.out.println("1. All the countries in the world organised by largest population to smallest");
         System.out.println();
         System.out.println(String.format("%-15s %-50s %-20s %-35s %-20s %s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all employees in the list
         for (Country cntry : countries) {
+            if (cntry == null)
+                continue;
             String cntry_string =
                     String.format("%-15s %-50s %-20s %-35s %-20s %s", cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
             System.out.println(cntry_string);
