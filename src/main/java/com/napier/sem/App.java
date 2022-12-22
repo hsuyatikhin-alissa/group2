@@ -7,48 +7,97 @@ import java.util.ArrayList;
 public class App
 {
 
-    public static void main(String[] args) {
 
-        DBConnect dbcon = new DBConnect();
+    public static void main(String[] args)
+    {
+//        AllCitiesInTheWorld acit = new AllCitiesInTheWorld();
+//        acit.connect();
+//        ArrayList<City> cities = acit.getAllCities();
+//        acit.printCities(cities);
+//        acit.disconnect();
+
+
+//        AllCountriesInARegion acir = new AllCountriesInARegion();
+//        acir.connect();
+//        ArrayList<Country> countries = acir.getAllCountries();
+//        acir.printCountries(countries);
+//        acir.disconnect();
+
+//        TopNPopulatedCitiesInTheWorld tpcw = new TopNPopulatedCitiesInTheWorld();
+//        tpcw.connect();
+//        ArrayList<City> cities = tpcw.getAllCities();
+//        tpcw.printCities(cities);
+//        tpcw.disconnect();
+
+        TopNPopulatedCountriesInARegion tpcr = new TopNPopulatedCountriesInARegion();
+        tpcr.connect();
+        ArrayList<Country> countries = tpcr.getAllCountries();
+        tpcr.printCountries(countries);
+        tpcr.disconnect();
+
+//    //All the cities in a continent organised by largest population to smallest.
+//
+//        // Create new Application
+//        AllCitiesInAContinent ccon = new AllCitiesInAContinent();
+//
+//        // Connect to database
+//        ccon.connect();
+//
+//        ArrayList<City> cities = ccon.getAllCities();
+//
+//        // Extract employee salary information
+//        ccon.printCities(cities);
+//
+//        // Disconnect from database
+//        ccon.disconnect();
+
+//    //All the cities in a region organised by largest population to smallest.
+//        // Create new Application
+//        AllCitiesInARegion creg = new AllCitiesInARegion();
+//
+//        // Connect to database
+//        creg.connect();
+//
+//        ArrayList<City> ccreg = creg.getAllCities();
+//
+//        // Extract employee salary information
+//        creg.printCities(ccreg);
+//
+//        // Disconnect from database
+//        creg.disconnect();
+
+
+//        //The top N populated cities in a continent where N is provided by the user.
+//
+//        // Create new Application
+//        TopNPopulatedCitiesInAContinent tcon = new TopNPopulatedCitiesInAContinent();
+//
+//        // Connect to database
+//        tcon.connect();
+//
+//        ArrayList<City> tccon = tcon.getAllCities();
+//
+//        // Extract employee salary information
+//        tcon.printCities(tccon);
+//
+//        // Disconnect from database
+//        tcon.disconnect();
+
+        // The top N populated cities in a region where N is provided by the user.
+
+        // Create new Application
+        //TopNPopulatedCitiesInARegion treg = new TopNPopulatedCitiesInARegion();
         // Connect to database
-        if(args.length < 1){
-            dbcon.connect("localhost:33060", 30000);
-        }else{
-            dbcon.connect(args[0], Integer.parseInt(args[1]));
-        }
+        //treg.connect();
 
-        /*All the countries in a continent organised by largest population to smallest.*/
-        AllCountriesInAContinent ccon = new AllCountriesInAContinent();
-        ccon.setCon(dbcon.getCon());
-        // Get all countries information in a continent
-        ArrayList<Country> countriescon = ccon.getAllCountries();
-        // Extract all countries information in a continent
-        ccon.printCountries(countriescon);
+        //ArrayList<City> tccreg = treg.getAllCities();
 
-        /*The top N populated countries in the world where N is provided by the user.*/
-        TopNPopulatedCountriesintheworld tcwor = new TopNPopulatedCountriesintheworld();
-        tcwor.setCon(dbcon.getCon());
-        // Get all countries information in the world
-        ArrayList<Country> countrieswor = tcwor.getAllCountries();
-        // Extract all cities information in a continent
-        tcwor.printCountries(countrieswor);
+        // Extract employee salary information
+        //treg.printCities(tccreg);
 
-        /*The top N populated countries in a continent where N is provided by the user.*/
-        TopNPopulatedCountriesinacontinent tccon = new TopNPopulatedCountriesinacontinent();
-        tccon.setCon(dbcon.getCon());
-        // Get all countries information in a continent
-        ArrayList<Country> countriesncon = tccon.getAllCountries();
-        // Extract all countries information in a continent
-        tccon.printCountries(countriesncon);
-
-        /*All the cities in a country organised by largest population to smallest.*/
-        AllCitiesInACountry crc = new AllCitiesInACountry();
-        crc.setCon(dbcon.getCon());
-        // Get all cities information in a country
-        ArrayList<City> citiescrc = crc.getAllCities();
-        // Extract all cities information in a country
-        crc.printCities(citiescrc);
-
+        // Disconnect from database
+        //treg.disconnect();
 
     }
+
 }
