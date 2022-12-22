@@ -11,37 +11,21 @@ public class App
     public static void main(String[] args)
     {
 
-//    //All the cities in a continent organised by largest population to smallest.
+//    //All the countries in a continent organised by largest population to smallest.
 //
-//        // Create new Application
-//        AllCitiesInAContinent ccon = new AllCitiesInAContinent();
-//
-//        // Connect to database
-//        ccon.connect();
-//
-//        ArrayList<City> cities = ccon.getAllCities();
-//
-//        // Extract employee salary information
-//        ccon.printCities(cities);
-//
-//        // Disconnect from database
-//        ccon.disconnect();
+        // Create new Application
+        //AllCountriesInAContinent conn = new AllCountriesInAContinent();
 
-//    //All the cities in a region organised by largest population to smallest.
-//        // Create new Application
-//        AllCitiesInARegion creg = new AllCitiesInARegion();
-//
-//        // Connect to database
-//        creg.connect();
-//
-//        ArrayList<City> ccreg = creg.getAllCities();
-//
-//        // Extract employee salary information
-//        creg.printCities(ccreg);
-//
-//        // Disconnect from database
-//        creg.disconnect();
+        // Connect to database
+        //conn.connect();
 
+        //ArrayList<Country> countries = conn.getAllCountries();
+
+        // Extract employee salary information
+        //conn.printCountries(countries);
+
+        // Disconnect from database
+        //conn.disconnect();
 
 //        //The top N populated cities in a continent where N is provided by the user.
 //
@@ -59,20 +43,21 @@ public class App
 //        // Disconnect from database
 //        tcon.disconnect();
 
-    // The top N populated cities in a region where N is provided by the user.
+     //The top N populated cities in a region where N is provided by the user.
 
-        // Create new Application
-        TopNPopulatedCitiesInARegion treg = new TopNPopulatedCitiesInARegion();
-        // Connect to database
+         //Create new Application
+        TopNPopulatedCountriesinacontinent treg = new TopNPopulatedCountriesinacontinent();
+         //Connect to database
         treg.connect();
 
-        ArrayList<City> tccreg = treg.getAllCities();
+        ArrayList<Country> countries = treg.getAllCountries();
 
-        // Extract employee salary information
-        treg.printCities(tccreg);
+         //Extract employee salary information
+        treg.printCountries(countries);
 
-        // Disconnect from database
+         //Disconnect from database
         treg.disconnect();
+
 
     }
 
