@@ -11,57 +11,52 @@ public class App
     public static void main(String[] args)
     {
 
-        DBConnect dbcon = new DBConnect();
+//    //All the countries in a continent organised by largest population to smallest.
+//
+        // Create new Application
+        AllCountriesInAContinent conn = new AllCountriesInAContinent();
+
         // Connect to database
-        if(args.length < 1){
-            dbcon.connect("localhost:33060", 30000);
-        }else{
-            dbcon.connect(args[0], Integer.parseInt(args[1]));
-        }
+        conn.connect();
 
+        ArrayList<Country> countries = conn.getAllCountries();
 
+        // Extract employee salary information
+        conn.printCountries(countries);
 
-        /*All the cities in a continent organised by largest population to smallest.*/
-        AllCitiesInAContinent ccon = new AllCitiesInAContinent();
-        ccon.setCon(dbcon.getCon());
-        // Get all cities information in a continent
-        ArrayList<City> citiescon = ccon.getAllCitiesInAContinent();
-        // Extract all cities information in a continent
-        ccon.printCitiesInAContinent(citiescon);
+        // Disconnect from database
+        conn.disconnect();
 
+//        //The top N populated cities in a continent where N is provided by the user.
+//
+//        // Create new Application
+//        TopNPopulatedCitiesInAContinent tcon = new TopNPopulatedCitiesInAContinent();
+//
+//        // Connect to database
+//        tcon.connect();
+//
+//        ArrayList<City> tccon = tcon.getAllCities();
+//
+//        // Extract employee salary information
+//        tcon.printCities(tccon);
+//
+//        // Disconnect from database
+//        tcon.disconnect();
 
+    // The top N populated cities in a region where N is provided by the user.
 
-        /*All the cities in a region organised by largest population to smallest.*/
-        AllCitiesInARegion creg = new AllCitiesInARegion();
-        creg.setCon(dbcon.getCon());
-        // Get all cities information in a continent
-        ArrayList<City> citiesreg = creg.getAllCitiesInARegion();
-        // Extract all cities information in a continent
-        creg.printCitiesInARegion(citiesreg);
+        // Create new Application
+        //TopNPopulatedCitiesInARegion treg = new TopNPopulatedCitiesInARegion();
+        // Connect to database
+        //treg.connect();
 
+        //ArrayList<City> tccreg = treg.getAllCities();
 
+        // Extract employee salary information
+        //treg.printCities(tccreg);
 
-        /*The top N populated cities in a continent where N is provided by the user.*/
-        TopNPopulatedCitiesInAContinent tccon = new TopNPopulatedCitiesInAContinent();
-        tccon.setCon(dbcon.getCon());
-        // Get all cities information in a continent
-        ArrayList<City> citiesncon = tccon.getAllCities();
-        // Extract all cities information in a continent
-        tccon.printCities(citiesncon);
-
-
-
-        /*The top N populated cities in a region where N is provided by the user.*/
-        TopNPopulatedCitiesInARegion tcreg = new TopNPopulatedCitiesInARegion();
-        tcreg.setCon(dbcon.getCon());
-        // Get all cities information in a continent
-        ArrayList<City> citiesnreg = tcreg.getAllCities();
-        // Extract all cities information in a continent
-        tcreg.printCities(citiesnreg);
-
-
-        //Disconnect from database.
-        dbcon.disconnect();
+        // Disconnect from database
+        //treg.disconnect();
 
 
     }
