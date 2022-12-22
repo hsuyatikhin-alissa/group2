@@ -3,8 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AllCitiesInAContinent {
-
+public class TopNPopulatedCitiesInADistrict {
     /**
      * Connection to MySQL database.
      */
@@ -70,11 +69,11 @@ public class AllCitiesInAContinent {
         }
     }
 
-
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * The top N populated cities in a district where N is provided by the user.
+     * @return A list of all cities and country, or null if there is an error.
      */
+
     public ArrayList<City> getAllCities()
     {
         try
@@ -83,13 +82,17 @@ public class AllCitiesInAContinent {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, country.Continent, city.District, city.Population "
-                            + "FROM city, country "
-                            + "WHERE city.CountryCode = country.Code "
-                            + "ORDER BY country.Continent ASC, city.Population DESC ";
+                    "SELECT city.Name, country.Name, city.District, city.Population "
+                            + "FROM city "
+                            + "JOIN country country "
+                            + "ON country.Code = city.CountryCode "
+                            + "WHERE city.District = 'Herat' "
+                            + "ORDER BY city.Population DESC "
+                            + "LIMIT 5 ";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract cities information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -97,9 +100,8 @@ public class AllCitiesInAContinent {
                 Country cntry = new Country();
                 cty.setName(rset.getString(1));
                 cntry.setName(rset.getString(2));
-                cntry.setContinent(rset.getString(3));
-                cty.setDistrict(rset.getString(4));
-                cty.setPopulation(rset.getInt(5));
+                cty.setDistrict(rset.getString(3));
+                cty.setPopulation(rset.getInt(4));
                 cty.setCountry(cntry);
                 cities.add(cty);
             }
@@ -115,22 +117,21 @@ public class AllCitiesInAContinent {
 
 
     /**
-     * Prints a list of employees.
-     * @param cities The list of employees to print.
+     * Prints a list of cities.
+     * @param cities The list of cities to print.
      */
     public void printCities(ArrayList<City> cities)
     {
         // Print header
-        System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
-        // Loop over all employees in the list
+        System.out.println("Top 5 Populated cities in a district");
+        System.out.println(String.format("%-10s %-20s %-20s %s", "Name", "Country", "District", "Population"));
+        // Loop over all cities in the list
         for (City cty : cities)
         {
             String cty_string =
-                    String.format("%-30s %-30s %-20s %-20s %s",
-                            cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
+                    String.format("%-10s %-20s %-20s %s",
+                            cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
     }
-
-
 }
