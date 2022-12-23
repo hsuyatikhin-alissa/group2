@@ -81,6 +81,9 @@ public class AllCitiesInAContinent {
         // Loop over all cities in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
+
             String cty_string =
                     String.format("%-30s %-30s %-20s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
