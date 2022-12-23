@@ -82,6 +82,5 @@ public class TopNPopulatedCountriesinacontinent {
         System.out.println();
     }
 
-
 }
 

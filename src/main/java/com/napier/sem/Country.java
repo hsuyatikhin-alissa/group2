@@ -52,4 +52,5 @@ public class Country {
 
     public int getCapital(){ return Capital; }
     public void setCapital(int capital) { Capital = capital; }
+
 }
