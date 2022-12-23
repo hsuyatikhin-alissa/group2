@@ -63,12 +63,20 @@ public class AllCountriesInARegion {
      */
     public void printCountries(ArrayList<Country> countries)
     {
+        // Check Countries is not null
+        if (countries == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println("3. All the countries in " + region + ".");
         System.out.println(String.format("%-5s %-45s %-25s %-25s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
+            if (cntry == null)
+                continue;
             String cntry_string =
                     String.format("%-5s %-45s %-25s %-25s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());

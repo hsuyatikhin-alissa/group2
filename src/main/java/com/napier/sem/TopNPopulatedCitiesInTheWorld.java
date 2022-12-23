@@ -70,12 +70,21 @@ public class TopNPopulatedCitiesInTheWorld {
          */
         public void printCities(ArrayList<City> cities)
         {
+            // Check Cities is not null
+            if (cities == null)
+            {
+                System.out.println("No cities");
+                return;
+            }
             // Print header
             System.out.println("12. The Top " + limit + " Populated cities in the world");
             System.out.println(String.format("%-30s %-30s %-30s %-20s %s", "Name", "Country", "Region", "District", "Population"));
             // Loop over all cities in the list
             for (City cty : cities)
             {
+                if (cty == null)
+                    continue;
+
                 String cty_string =
                         String.format("%-30s %-30s %-30s %-20s %s",
                                 cty.getName(), cty.getCountry().getName(), cty.getCountry().getRegion(), cty.getDistrict(), cty.getPopulation());
