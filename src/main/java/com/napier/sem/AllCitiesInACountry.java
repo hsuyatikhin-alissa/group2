@@ -66,6 +66,13 @@ public class AllCitiesInACountry {
      */
     public void printCities(ArrayList<City> cities)
     {
+        // Check Countries is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
         // Print header
         System.out.println("10. All the cities in " + country + " organised by largest population to smallest.");
         System.out.println();
@@ -73,6 +80,8 @@ public class AllCitiesInACountry {
         // Loop over all cities in a country in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
             String cty_string =
                     String.format("%-40s %-35s %-20s %-30s %-25s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());

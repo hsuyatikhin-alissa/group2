@@ -65,6 +65,11 @@ public class AllCountriesInAContinent {
      */
     public void printCountries(ArrayList<Country> countries)
     {
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         // Print header
         System.out.println("2. All the countries in " + continent + " organised by largest population to smallest.");
         System.out.println();
@@ -72,6 +77,8 @@ public class AllCountriesInAContinent {
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
+            if (cntry == null)
+                continue;
             String cntry_string =
                     String.format("%-5s %-45s %-25s %-35s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
