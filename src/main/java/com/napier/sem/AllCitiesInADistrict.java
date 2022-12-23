@@ -72,7 +72,7 @@ public class AllCitiesInADistrict {
         System.out.println("11. All the cities in " + district + " district organised by largest population to smallest");
         System.out.println();
         System.out.println(String.format("%-30s %-20s %-20s %s", "Name", "Country", "District", "Population"));
-        // Loop over all employees in the list
+        // Loop over all cities in the list
         for (City cty : cities)
         {
             if (cty == null)

@@ -61,7 +61,7 @@ public class AllCountriesInWorld {
         System.out.println("1. All the countries in the world organised by largest population to smallest");
         System.out.println();
         System.out.println(String.format("%-15s %-50s %-20s %-35s %-20s %s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
-        // Loop over all employees in the list
+        // Loop over all countries in the list
         for (Country cntry : countries) {
             if (cntry == null)
                 continue;
