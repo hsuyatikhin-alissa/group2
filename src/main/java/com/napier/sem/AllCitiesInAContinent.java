@@ -5,69 +5,12 @@ import java.util.ArrayList;
 
 public class AllCitiesInAContinent {
 
-    /**
-     * Connection to MySQL database.
-     */
-    private Connection con = null;
+    private String continent = "Asia";
 
-    /**
-     * Connect to the MySQL database.
-     */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
+    private Connection con;
 
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
+    public void setCon(Connection con) {
+        this.con = con;
     }
 
     /**
@@ -76,6 +19,7 @@ public class AllCitiesInAContinent {
      */
     public ArrayList<City> getAllCitiesInAContinent()
     {
+
         try
         {
             // Create an SQL statement
@@ -84,8 +28,8 @@ public class AllCitiesInAContinent {
             String strSelect =
                     "SELECT city.Name, country.Name, country.Continent, city.District, city.Population "
                             + "FROM city, country "
-                            + "WHERE city.CountryCode = country.Code "
-                            + "ORDER BY country.Continent ASC, city.Population DESC ";
+                            + "WHERE city.CountryCode = country.Code && country.Continent = '" + continent + "'\n"
+                            + "ORDER BY city.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract all the cities in a continent organised by largest population to smallest
@@ -119,8 +63,21 @@ public class AllCitiesInAContinent {
      */
     public void printCitiesInAContinent(ArrayList<City> cities)
     {
+
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
         // Print header
+        System.out.println();
+        System.out.println("8. All the cities in " + continent + " organised by largest population to smallest.");
+        System.out.println();
+
         System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
+        System.out.println(" ");
         // Loop over all cities in the list
         for (City cty : cities)
         {
@@ -129,6 +86,7 @@ public class AllCitiesInAContinent {
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
+        System.out.println();
     }
 
 

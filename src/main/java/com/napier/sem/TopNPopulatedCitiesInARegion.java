@@ -5,72 +5,17 @@ import java.util.ArrayList;
 
 public class TopNPopulatedCitiesInARegion {
 
+    private String region = "Eastern Asia";
+    private int limit = 5;
+
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    private Connection con;
 
-    /**
-     * Connect to the MySQL database.
-     */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
+    public void setCon(Connection con) {
+        this.con = con;
     }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
-    }
-
-
     /**
      * Gets the top N populated cities in a region where N is provided by the user.
      * @return A list of the top N populated cities in a region where N is provided by the user.
@@ -87,9 +32,9 @@ public class TopNPopulatedCitiesInARegion {
                             + "FROM city "
                             + "JOIN country country "
                             + "ON country.Code = city.CountryCode "
-                            + "WHERE country.Region = 'Eastern Asia' "
+                            + "WHERE country.Region = '" + region + "'\n"
                             + "ORDER BY city.Population DESC "
-                            + "LIMIT 3 ";
+                            + "LIMIT " + limit + ";";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract the top N populated cities in a region where N is provided by the user.
@@ -124,7 +69,10 @@ public class TopNPopulatedCitiesInARegion {
     public void printCities(ArrayList<City> cities)
     {
         // Print header
+        System.out.println("14. The top " + limit + " populated cities in " + region + " region.");
+        System.out.println();
         System.out.println(String.format("%-30s %-30s %-30s %-20s %s", "Name", "Country", "Region", "District", "Population"));
+        System.out.println();
         // Loop over all cities in the list
         for (City cty : cities)
         {
@@ -133,6 +81,7 @@ public class TopNPopulatedCitiesInARegion {
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getRegion(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
+        System.out.println();
     }
 
 
