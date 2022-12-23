@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+
 /**
  * Represents a city
  */
