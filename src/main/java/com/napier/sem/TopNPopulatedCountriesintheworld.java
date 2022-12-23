@@ -5,69 +5,15 @@ import java.util.ArrayList;
 
 public class TopNPopulatedCountriesintheworld {
 
+    private int limit = 5;
+
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    private Connection con;
 
-    /**
-     * Connect to the MySQL database.
-     */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
+    public void setCon(Connection con) {
+        this.con = con;
     }
 
     /**
@@ -85,7 +31,7 @@ public class TopNPopulatedCountriesintheworld {
                     "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
                             + "FROM country "
                             + "ORDER BY country.Population DESC "
-                            + "LIMIT 3 ";
+                            + "LIMIT " + limit + ";";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -120,15 +66,18 @@ public class TopNPopulatedCountriesintheworld {
     public void printCountries(ArrayList<Country> countries)
     {
         // Print header
-        System.out.println(String.format("%-5s %-45s %-25s %-25s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        System.out.println("4. The top " + limit + " populated countries in the world");
+        System.out.println();
+        System.out.println(String.format("%-5s %-45s %-25s %-35s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
             String cntry_string =
-                    String.format("%-5s %-45s %-25s %-25s %-25s %-25s",
+                    String.format("%-5s %-45s %-25s %-35s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
             System.out.println(cntry_string);
         }
+        System.out.println();
     }
 
 
