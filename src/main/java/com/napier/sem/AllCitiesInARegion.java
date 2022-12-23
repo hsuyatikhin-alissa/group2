@@ -5,69 +5,18 @@ import java.util.ArrayList;
 
 public class AllCitiesInARegion {
 
+    private String region = "Eastern Asia";
+
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
-
     /**
      * Connect to the MySQL database.
      */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
+    private Connection con;
 
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
+    public void setCon(Connection con) {
+        this.con = con;
     }
 
 
@@ -79,14 +28,18 @@ public class AllCitiesInARegion {
     {
         try
         {
+
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
                     "SELECT city.Name, country.Name, country.Region, city.District, city.Population "
-                            + "FROM city, country "
-                            + "WHERE city.CountryCode = country.Code "
-                            + "ORDER BY country.Region ASC, city.Population DESC ";
+                            + "FROM city "
+                            + "JOIN country country "
+                            + "ON country.Code = city.CountryCode "
+                            + "WHERE country.Region = '" + region + "'\n"
+                            + "ORDER BY city.Population DESC ";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -121,15 +74,18 @@ public class AllCitiesInARegion {
     public void printCitiesInARegion(ArrayList<City> cities)
     {
         // Print header
-        System.out.println(String.format("%-30s %-30s %-80s %-30s %s", "Name", "Country", "Region", "District", "Population"));
+        System.out.println("9. All the cities in " + region + " region organised by largest population to smallest.\n");
+        System.out.println(String.format("%-30s %-30s %-50s %-30s %s", "Name", "Country", "Region", "District", "Population"));
+        System.out.println();
         // Loop over all employees in the list
         for (City cty : cities)
         {
             String cty_string =
-                    String.format("%-30s %-30s %-80s %-30s %s",
+                    String.format("%-30s %-30s %-50s %-30s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getRegion(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
+        System.out.println();
     }
 
 
