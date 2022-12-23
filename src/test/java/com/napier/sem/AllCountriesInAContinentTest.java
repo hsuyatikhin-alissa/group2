@@ -42,11 +42,12 @@ public class AllCountriesInAContinentTest {
         country.setContinent("North America");
         country.setRegion("Caribbean");
         country.setPopulation(103000);
-        country.setCapital("Oranjestad");
+        country.setCapital(129);
         countries.add(country);
         app.printCountries(countries);
     }
 }
+
 
 
 
