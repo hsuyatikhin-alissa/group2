@@ -7,69 +7,11 @@ public class AllCitiesInTheWorld {
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    private Connection con;
 
-    /**
-     * Connect to the MySQL database.
-     */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(30000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
+    public void setCon(Connection con) {
+        this.con = con;
     }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
-    }
-
-
     /**
      * Gets all cities in the world
      * @return A list of all cities in the world ordered by population
@@ -116,8 +58,9 @@ public class AllCitiesInTheWorld {
     public void printCities(ArrayList<City> cities)
     {
         // Print header
+        System.out.println("7. All the cities in the world organized by population");
         System.out.println(String.format("%-50s %-30s %s", "Name", "CountryCode", "Population"));
-        // Loop over all employees in the list
+        // Loop over all cities in the list
         for (City cty : cities)
         {
             String cty_string =
@@ -125,5 +68,6 @@ public class AllCitiesInTheWorld {
                             cty.getName(), cty.getCountryCode(), cty.getPopulation());
             System.out.println(cty_string);
         }
+        System.out.println();
     }
 }
