@@ -3,9 +3,9 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AllCountriesInAContinent {
+public class TopNPopulatedCountriesintheworld {
 
-    private String continent = "Asia";
+    private int limit = 5;
 
     /**
      * Connection to MySQL database.
@@ -17,8 +17,8 @@ public class AllCountriesInAContinent {
     }
 
     /**
-     * Gets all the current countries in a continent.
-     * @return A list of all countries in a continent, or null if there is an error.
+     * Gets all Top N populated countries in the world.
+     * @return A list of all Top N populated countries in the world, or null if there is an error.
      */
     public ArrayList<Country> getAllCountries()
     {
@@ -30,8 +30,9 @@ public class AllCountriesInAContinent {
             String strSelect =
                     "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
                             + "FROM country "
-                            + "WHERE country.Continent = '" + continent + "'\n"
-                            + "ORDER BY country.Population DESC ";
+                            + "ORDER BY country.Population DESC "
+                            + "LIMIT " + limit + ";";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract countries information
@@ -59,13 +60,13 @@ public class AllCountriesInAContinent {
 
 
     /**
-     * Prints a list of countries in a continent.
-     * @param countries The list of countries in a continent to print.
+     * Prints a list of all Top N populated countries in the world.
+     * @param countries The list of all Top N populated countries in the world.
      */
     public void printCountries(ArrayList<Country> countries)
     {
         // Print header
-        System.out.println("2. All the countries in " + continent + " organised by largest population to smallest.");
+        System.out.println("4. The top " + limit + " populated countries in the world");
         System.out.println();
         System.out.println(String.format("%-5s %-45s %-25s %-35s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all countries in the list
@@ -81,3 +82,4 @@ public class AllCountriesInAContinent {
 
 
 }
+
