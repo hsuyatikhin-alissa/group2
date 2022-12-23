@@ -10,93 +10,49 @@ public class App
 
     public static void main(String[] args)
     {
-//        AllCitiesInTheWorld acit = new AllCitiesInTheWorld();
-//        acit.connect();
-//        ArrayList<City> cities = acit.getAllCities();
-//        acit.printCities(cities);
-//        acit.disconnect();
+        // Create an object to call AllCitiesInAContinent Class
+        DBConnect dbcon = new DBConnect();
+        // Connect to database
+        dbcon.connect();
 
 
-//        AllCountriesInARegion acir = new AllCountriesInARegion();
-//        acir.connect();
-//        ArrayList<Country> countries = acir.getAllCountries();
-//        acir.printCountries(countries);
-//        acir.disconnect();
+        /**
+         * All the cities in the world organised by largest population to smallest.
+         */
 
-//        TopNPopulatedCitiesInTheWorld tpcw = new TopNPopulatedCitiesInTheWorld();
-//        tpcw.connect();
-//        ArrayList<City> cities = tpcw.getAllCities();
-//        tpcw.printCities(cities);
-//        tpcw.disconnect();
+        AllCitiesInTheWorld acit = new AllCitiesInTheWorld();
+        acit.setCon(dbcon.getCon());
+        ArrayList<City> cities = acit.getAllCities();
+        acit.printCities(cities);
+
+        /**
+         * All the countries in a region organised by largest population to smallest.
+         */
+
+        AllCountriesInARegion acir = new AllCountriesInARegion();
+        acir.setCon(dbcon.getCon());
+        ArrayList<Country> countries = acir.getAllCountries();
+        acir.printCountries(countries);
+
+
+        /**
+         * top N populated cities in the world organised by largest population to smallest.
+         */
+
+        TopNPopulatedCitiesInTheWorld tpcw = new TopNPopulatedCitiesInTheWorld();
+        tpcw.setCon(dbcon.getCon());
+        ArrayList<City> Tcities = tpcw.getAllCities();
+        tpcw.printCities(Tcities);
+
+        /**
+         * Top n populated countries organised by largest population to smallest.
+         */
 
         TopNPopulatedCountriesInARegion tpcr = new TopNPopulatedCountriesInARegion();
-        tpcr.connect();
-        ArrayList<Country> countries = tpcr.getAllCountries();
-        tpcr.printCountries(countries);
-        tpcr.disconnect();
+        tpcr.setCon(dbcon.getCon());
+        ArrayList<Country> Tcountries = tpcr.getAllCountries();
+        tpcr.printCountries(Tcountries);
 
-//    //All the cities in a continent organised by largest population to smallest.
-//
-//        // Create new Application
-//        AllCitiesInAContinent ccon = new AllCitiesInAContinent();
-//
-//        // Connect to database
-//        ccon.connect();
-//
-//        ArrayList<City> cities = ccon.getAllCities();
-//
-//        // Extract employee salary information
-//        ccon.printCities(cities);
-//
-//        // Disconnect from database
-//        ccon.disconnect();
-
-//    //All the cities in a region organised by largest population to smallest.
-//        // Create new Application
-//        AllCitiesInARegion creg = new AllCitiesInARegion();
-//
-//        // Connect to database
-//        creg.connect();
-//
-//        ArrayList<City> ccreg = creg.getAllCities();
-//
-//        // Extract employee salary information
-//        creg.printCities(ccreg);
-//
-//        // Disconnect from database
-//        creg.disconnect();
-
-
-//        //The top N populated cities in a continent where N is provided by the user.
-//
-//        // Create new Application
-//        TopNPopulatedCitiesInAContinent tcon = new TopNPopulatedCitiesInAContinent();
-//
-//        // Connect to database
-//        tcon.connect();
-//
-//        ArrayList<City> tccon = tcon.getAllCities();
-//
-//        // Extract employee salary information
-//        tcon.printCities(tccon);
-//
-//        // Disconnect from database
-//        tcon.disconnect();
-
-        // The top N populated cities in a region where N is provided by the user.
-
-        // Create new Application
-        //TopNPopulatedCitiesInARegion treg = new TopNPopulatedCitiesInARegion();
-        // Connect to database
-        //treg.connect();
-
-        //ArrayList<City> tccreg = treg.getAllCities();
-
-        // Extract employee salary information
-        //treg.printCities(tccreg);
-
-        // Disconnect from database
-        //treg.disconnect();
 
     }
 
