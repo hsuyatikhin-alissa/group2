@@ -57,12 +57,20 @@ public class AllCitiesInTheWorld {
      */
     public void printCities(ArrayList<City> cities)
     {
+        // Check Cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println("7. All the cities in the world organized by population");
         System.out.println(String.format("%-50s %-30s %s", "Name", "CountryCode", "Population"));
         // Loop over all cities in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
             String cty_string =
                     String.format("%-50s %-30s %s",
                             cty.getName(), cty.getCountryCode(), cty.getPopulation());
