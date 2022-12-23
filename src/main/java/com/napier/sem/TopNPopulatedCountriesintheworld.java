@@ -66,6 +66,12 @@ public class TopNPopulatedCountriesintheworld {
      */
     public void printCountries(ArrayList<Country> countries)
     {
+        // Check Countries is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         // Print header
         System.out.println("4. The top " + limit + " populated countries in the world");
         System.out.println();
@@ -73,6 +79,8 @@ public class TopNPopulatedCountriesintheworld {
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
+            if (cntry == null)
+                continue;
             String cntry_string =
                     String.format("%-5s %-45s %-25s %-35s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
