@@ -17,7 +17,7 @@ public class App
             dbcon.connect(args[0], Integer.parseInt(args[1]));
         }
 
-
+        
         /**
          * All the cities in the world organised by largest population to smallest.
          */
@@ -55,7 +55,8 @@ public class App
         ArrayList<Country> Tcountries = tpcr.getAllCountries();
         tpcr.printCountries(Tcountries);
 
-
+       
+        
     }
 
 }
