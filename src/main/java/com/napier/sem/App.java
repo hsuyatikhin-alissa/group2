@@ -8,12 +8,15 @@ public class App
 {
 
 
-    public static void main(String[] args)
-    {
-        // Create an object to call AllCitiesInAContinent Class
+    public static void main(String[] args) {
+
         DBConnect dbcon = new DBConnect();
         // Connect to database
-        dbcon.connect();
+        if(args.length < 1){
+            dbcon.connect("localhost:33060", 30000);
+        }else{
+            dbcon.connect(args[0], Integer.parseInt(args[1]));
+        }
 
 
         /**
