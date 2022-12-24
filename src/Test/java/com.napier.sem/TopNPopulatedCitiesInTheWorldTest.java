@@ -48,4 +48,3 @@ public class TopNPopulatedCitiesInTheWorldTest {
         app.printCities(cities);
     }
 }
-
