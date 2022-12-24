@@ -18,7 +18,6 @@ jobs:
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem/*.java  test
 
-
   build:
     name: Build and Start Using docker-compose
     runs-on: ubuntu-20.04
