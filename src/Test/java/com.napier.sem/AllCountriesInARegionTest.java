@@ -47,9 +47,3 @@ public class AllCountriesInARegionTest {
         app.printCountries(countries);
     }
 }
-
-
-
-
-
-
