@@ -47,9 +47,3 @@ public class TopNPopulatedCountriesInARegionTest {
         app.printCountries(countries);
     }
 }
-
-
-
-
-
-
