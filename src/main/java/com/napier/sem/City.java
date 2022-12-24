@@ -2,14 +2,26 @@ package com.napier.sem;
 
 
 /**
- * Represents a city
+ * Represents an city
  */
 public class City
 {
+
     /**
      * Country to get country name
      */
     private Country country;
+    /**
+     * City ID
+     */
+    public Country getCountry() {
+        return country;
+    }
+
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
     /**
      * City ID
@@ -27,6 +39,11 @@ public class City
     private String CountryCode;
 
     /**
+     * Region
+     */
+    private String Region;
+
+    /**
      * City District
      */
     private String District;
@@ -35,14 +52,6 @@ public class City
      * City Population
      */
     private int Population;
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
 
     public int getID() {
         return ID;
@@ -64,8 +73,16 @@ public class City
         return CountryCode;
     }
 
-    public void setCountryCode(String countryCode) {
-        CountryCode = countryCode;
+    public void setCountryCode(String code) {
+        CountryCode = code;
+    }
+
+    public String getRegion() {
+        return Region;
+    }
+
+    public void setRegion(String region) {
+        Region = region;
     }
 
     public String getDistrict() {
@@ -84,4 +101,3 @@ public class City
         Population = population;
     }
 }
-
