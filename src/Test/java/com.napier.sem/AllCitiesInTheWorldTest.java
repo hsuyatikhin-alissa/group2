@@ -44,4 +44,3 @@ public class AllCitiesInTheWorldTest {
             app.printCities(cities);
         }
     }
-
