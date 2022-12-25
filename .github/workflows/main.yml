@@ -16,7 +16,7 @@ jobs:
           java-version: '19'
           distribution: 'adopt'
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem/*.java tsest
+        run: mvn -Dtest=com.napier.sem/*.java test
 
 
   build:
