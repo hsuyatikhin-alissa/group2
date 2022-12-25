@@ -7,21 +7,21 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppIntegrationTest {
-    static AllCitiesInAContinent ccon;
+class TopNPopulatedCitiesInARegionIntegrationTest {
+    static TopNPopulatedCitiesInARegion treg;
     static DBConnect db;
 
     @BeforeAll
     static void init() {
-        ccon = new AllCitiesInAContinent();
+        treg = new TopNPopulatedCitiesInARegion();
         db = new DBConnect();
-        ccon.setCon(db.getCon());
+        treg.setCon(db.getCon());
     }
 
     @Test
-    void displayAllCitiesInAContinent() {
+    void printCitiesInAContinent() {
         ArrayList<City> cty = new ArrayList<City>();
-        ccon.printCitiesInAContinent(cty);
+        treg.printCities(cty);
     }
 
 }
