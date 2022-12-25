@@ -72,6 +72,13 @@ public class TopNPopulatedCitiesInAContinent {
      */
     public void printCities(ArrayList<City> cities)
     {
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
         // Print header
         System.out.println("13. The top " + limit + " populated cities in " + continent + ".");
         System.out.println();
@@ -81,6 +88,9 @@ public class TopNPopulatedCitiesInAContinent {
         // Loop over all cities in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
+
             String cty_string =
                     String.format("%-30s %-30s %-20s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
