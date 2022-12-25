@@ -73,6 +73,12 @@ public class AllCitiesInARegion {
      */
     public void printCitiesInARegion(ArrayList<City> cities)
     {
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println("9. All the cities in " + region + " region organised by largest population to smallest.\n");
         System.out.println(String.format("%-30s %-30s %-50s %-30s %s", "Name", "Country", "Region", "District", "Population"));
@@ -80,6 +86,9 @@ public class AllCitiesInARegion {
         // Loop over all employees in the list
         for (City cty : cities)
         {
+            if (cty == null)
+                continue;
+
             String cty_string =
                     String.format("%-30s %-30s %-50s %-30s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getRegion(), cty.getDistrict(), cty.getPopulation());
