@@ -2,26 +2,32 @@ package com.napier.sem;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AllCitiesInTheWorldIntegrationTest {
-    static AllCitiesInTheWorld ccon;
+    static AllCitiesInTheWorld creg;
     static DBConnect db;
 
     @BeforeAll
     static void init() {
-        ccon = new AllCitiesInTheWorld();
+        creg = new AllCitiesInTheWorld();
         db = new DBConnect();
-        ccon.setCon(db.getCon());
+        db.connect("Localhost:33060", 3000);
+        creg.setCon(db.getCon());
     }
-
     @Test
-    void printCitiesInTheWorld() {
-        ArrayList<City> cty = new ArrayList<City>();
-        ccon.printCities(cty);
-    }
+    void testCities() throws SQLException {
+        // create array list
+        ArrayList<City> cities = creg.getAllCities();
+        // check array list is null
+        assertNotNull(cities);
+        /*Check expected data are correct or not*/
+        assertEquals(cities.get(1).getName(),"Seoul");
+        assertEquals(cities.get(1).getCountryCode(),"KOR");
+        assertEquals(cities.get(1).getPopulation(),9981619);
 
+    }
 }
