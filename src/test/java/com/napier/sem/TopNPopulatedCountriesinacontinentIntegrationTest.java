@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TopNPopulatedCountriesInacontinentintegrationTest {
+class TopNPopulatedCountriesinacontinentIntegrationTest {
     static TopNPopulatedCountriesinacontinent tcon;
     static DBConnect db;
 
