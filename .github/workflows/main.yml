@@ -23,7 +23,6 @@ jobs:
           mvn -Dtest=com.napier.sem/AllCitiesInADistrictTest.java test
           mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInACountryTest.java test
           mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInADistrictTest.java test
-  
 
   IntegrationTests:
     name: Integration Tests
@@ -41,6 +40,7 @@ jobs:
       - name: Integration Tests
         run: |
           docker build -t database ./db 
+          docker run --name world -dp 33060:3306 database
           docker run --name world -dp 33060:3306 database
           mvn -Dtest=com.napier.sem/AllCountriesInWorldIntegrationTest.java test
           mvn -Dtest=com.napier.sem/AllCitiesInADistrictIntegrationTest.java test
@@ -74,4 +74,3 @@ jobs:
         run: |
           mvn package -DskipTests
           docker-compose up --abort-on-container-exit
-          
