@@ -19,10 +19,10 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: |
-          mvn -Dtest=com.napier.sem/AllCitiesInAContinentTest.java test
-          mvn -Dtest=com.napier.sem/AllCitiesInARegionTest.java test
-          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInAContinentTest.java test
-          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInARegionTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInTheWorldTest.java test
+          mvn -Dtest=com.napier.sem/AllCountriesInARegionTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInTheWorldTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCountriesInARegionTest.java test
   
 
   IntegrationTests:
