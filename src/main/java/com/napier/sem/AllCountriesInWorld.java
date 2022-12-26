@@ -23,8 +23,11 @@ public class AllCountriesInWorld {
             // Create string for SQL statement
             String strSelect =
                     "SELECT country.Code, country.Name, country.Continent, "
-                            + "country.Region, country.Population, country.Capital "
-                            + "FROM country ORDER BY country.Population DESC ";
+                            + "country.Region, country.Population, capitalCity.Name AS Capital "
+                            + "FROM country "
+                            + "JOIN city capitalCity ON capitalCity.ID = country.Capital "
+                            + "ORDER BY country.Population DESC ";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract countries information
@@ -36,7 +39,7 @@ public class AllCountriesInWorld {
                 cntry.setContinent(rset.getString("Continent"));
                 cntry.setRegion(rset.getString("Region"));
                 cntry.setPopulation(rset.getInt("Population"));
-                cntry.setCapital(rset.getInt("Capital"));
+                cntry.setCapital(rset.getString("Capital"));
                 countries.add(cntry);
             }
             return countries;
@@ -61,7 +64,7 @@ public class AllCountriesInWorld {
         System.out.println("1. All the countries in the world organised by largest population to smallest");
         System.out.println();
         System.out.println(String.format("%-15s %-50s %-20s %-35s %-20s %s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
-        // Loop over all employees in the list
+        // Loop over all countries in the list
         for (Country cntry : countries) {
             if (cntry == null)
                 continue;
