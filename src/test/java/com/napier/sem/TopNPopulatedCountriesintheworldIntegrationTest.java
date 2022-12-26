@@ -33,8 +33,4 @@ class TopNPopulatedCountriesintheworldIntegrationTest {
         assertEquals(countries.get(0).getCapital(),1891);
         // print report
     }
-
-
-
-
 }
