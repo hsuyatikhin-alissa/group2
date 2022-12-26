@@ -18,7 +18,7 @@ class AllCountriesInAContinentIntegrationTest {
         db.connect("Localhost:33060", 30000);
         ccon.setCon(db.getCon());
     }
-
+    @Test
     void testCountry() throws SQLException {
         // create array list
         ArrayList<Country> countries = ccon.getAllCountries();
