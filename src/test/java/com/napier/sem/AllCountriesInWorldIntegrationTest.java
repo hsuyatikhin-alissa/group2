@@ -24,7 +24,7 @@ public class AllCountriesInWorldIntegrationTest {
 //        ArrayList<Country> cntry = new ArrayList<Country>();
 //        cntrywd.printCountries(cntry);
 //    }
-//    @Test
+    @Test
     void testCountry() throws SQLException {
         // create array list
         ArrayList<Country> countries = cntrywd.getAllCountries();
@@ -40,3 +40,4 @@ public class AllCountriesInWorldIntegrationTest {
         // print report
     }
 }
+
