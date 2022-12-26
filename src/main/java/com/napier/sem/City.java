@@ -1,31 +1,56 @@
 package com.napier.sem;
 
+
 /**
  * Represents an city
  */
 public class City
 {
 
+    /**
+     * Country to get country name
+     */
     private Country country;
-
+    /**
+     * City ID
+     */
     public Country getCountry() {
         return country;
     }
+
 
     public void setCountry(Country country) {
         this.country = country;
     }
 
+    /**
+     * City ID
+     */
     private int ID;
 
+    /**
+     * City Name
+     */
     private String Name;
 
+    /**
+     * CountryCode
+     */
     private String CountryCode;
 
+    /**
+     * Region
+     */
     private String Region;
 
+    /**
+     * City District
+     */
     private String District;
 
+    /**
+     * City Population
+     */
     private int Population;
 
     public int getID() {

@@ -1,12 +1,11 @@
 package com.napier.sem;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AllCountriesInAContinent {
+public class AllCountriesInARegion {
 
-    private String continent = "Asia";
+    private String region = "Eastern Asia";
 
     /**
      * Connection to MySQL database.
@@ -16,10 +15,9 @@ public class AllCountriesInAContinent {
     public void setCon(Connection con) {
         this.con = con;
     }
-
     /**
-     * Gets all the current countries in a continent.
-     * @return A list of all countries in a continent, or null if there is an error.
+     * Gets all the countries in a region.
+     * @return A list of all countries in a region, or null if there is an error.
      */
     public ArrayList<Country> getAllCountries()
     {
@@ -29,11 +27,11 @@ public class AllCountriesInAContinent {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, capitalCity.Name AS Capital "
-                            + "FROM country "
-                            + "JOIN city capitalCity ON capitalCity.ID = country.Capital "
-                            + "WHERE country.Continent = '" + continent + "'\n"
-                            + "ORDER BY country.Population DESC ";
+                "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, capitalCity.Name AS Capital "
+                        + "FROM country "
+                        + "JOIN city capitalCity ON capitalCity.ID = country.Capital "
+                        + "WHERE country.Region = '" + region + "'\n"
+                        + "ORDER BY country.Population DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract countries information
@@ -54,34 +52,34 @@ public class AllCountriesInAContinent {
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
+            System.out.println("Failed to get country details");
             return null;
         }
     }
 
 
     /**
-     * Prints a list of countries in a continent.
-     * @param countries The list of countries in a continent to print.
+     * Prints a list of countries.
+     * @param countries The list of countries to print.
      */
     public void printCountries(ArrayList<Country> countries)
     {
+        // Check Countries is not null
         if (countries == null)
         {
-            System.out.println("No countries");
+            System.out.println("No cities");
             return;
         }
         // Print header
-        System.out.println("2. All the countries in " + continent + " organised by largest population to smallest.");
-        System.out.println();
-        System.out.println(String.format("%-5s %-45s %-25s %-35s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        System.out.println("3. All the countries in " + region + ".");
+        System.out.println(String.format("%-5s %-45s %-25s %-25s %-25s %-25s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
             if (cntry == null)
                 continue;
             String cntry_string =
-                    String.format("%-5s %-45s %-25s %-35s %-25s %-25s",
+                    String.format("%-5s %-45s %-25s %-25s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
             System.out.println(cntry_string);
         }

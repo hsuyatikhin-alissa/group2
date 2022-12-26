@@ -29,8 +29,9 @@ public class TopNPopulatedCountriesinacontinent {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, capitalCity.Name AS Capital "
                             + "FROM country "
+                            + "JOIN city capitalCity ON capitalCity.ID = country.Capital "
                             + "WHERE country.Continent = '" + continent + "'\n"
                             + "ORDER BY country.Population DESC "
                             + "LIMIT " + limit + ";";
@@ -47,7 +48,7 @@ public class TopNPopulatedCountriesinacontinent {
                 cntry.setContinent(rset.getString(3));
                 cntry.setRegion(rset.getString(4));
                 cntry.setPopulation(rset.getInt(5));
-                cntry.setCapital(rset.getInt(6));
+                cntry.setCapital(rset.getString(6));
                 countries.add(cntry);
             }
             return countries;
@@ -67,6 +68,12 @@ public class TopNPopulatedCountriesinacontinent {
      */
     public void printCountries(ArrayList<Country> countries)
     {
+        // Check Countries is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         // Print header
         System.out.println("5. The top " + limit + " populated countries in " + continent + ".");
         System.out.println();
@@ -74,6 +81,8 @@ public class TopNPopulatedCountriesinacontinent {
         // Loop over all countries in the list
         for (Country cntry : countries)
         {
+            if (cntry == null)
+                continue;
             String cntry_string =
                     String.format("%-5s %-45s %-25s %-35s %-25s %-25s",
                             cntry.getCode(), cntry.getName(), cntry.getContinent(), cntry.getRegion(), cntry.getPopulation(), cntry.getCapital());
@@ -81,7 +90,6 @@ public class TopNPopulatedCountriesinacontinent {
         }
         System.out.println();
     }
-
 
 }
 

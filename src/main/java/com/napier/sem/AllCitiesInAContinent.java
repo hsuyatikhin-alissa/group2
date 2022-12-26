@@ -3,13 +3,10 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AllCitiesInACountry {
+public class AllCitiesInAContinent {
 
-    private String country = "United States";
+    private String continent = "Asia";
 
-    /**
-     * Connection to MySQL database.
-     */
     private Connection con;
 
     public void setCon(Connection con) {
@@ -17,11 +14,12 @@ public class AllCitiesInACountry {
     }
 
     /**
-     * Gets all cities in a country.
-     * @return A list of all cities in a country, or null if there is an error.
+     * Get all the cities in a continent organised by largest population to smallest.
+     * @return A list of all the cities in a continent organised by largest population to smallest, or null if there is an error.
      */
-    public ArrayList<City> getAllCities()
+    public ArrayList<City> getAllCitiesInAContinent()
     {
+
         try
         {
             // Create an SQL statement
@@ -30,12 +28,11 @@ public class AllCitiesInACountry {
             String strSelect =
                     "SELECT city.Name, country.Name, country.Continent, city.District, city.Population "
                             + "FROM city, country "
-                            + "WHERE city.CountryCode = country.Code && country.Name = '" + country + "'\n"
+                            + "WHERE city.CountryCode = country.Code && country.Continent = '" + continent + "'\n"
                             + "ORDER BY city.Population DESC ";
-
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract cities information
+            // Extract all the cities in a continent organised by largest population to smallest
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -61,12 +58,13 @@ public class AllCitiesInACountry {
 
 
     /**
-     * Prints a list of all cities in a country.
-     * @param cities The list of all cities in a country to print.
+     * Prints a list of cities.
+     * @param cities The list of cities to print.
      */
-    public void printCities(ArrayList<City> cities)
+    public void printCitiesInAContinent(ArrayList<City> cities)
     {
-        // Check Countries is not null
+
+        // Check cities is not null
         if (cities == null)
         {
             System.out.println("No cities");
@@ -74,16 +72,20 @@ public class AllCitiesInACountry {
         }
 
         // Print header
-        System.out.println("10. All the cities in " + country + " organised by largest population to smallest.");
         System.out.println();
-        System.out.println(String.format("%-40s %-35s %-20s %-30s %-25s", "Name", "Country", "Continent", "District", "Population"));
-        // Loop over all cities in a country in the list
+        System.out.println("8. All the cities in " + continent + " organised by largest population to smallest.");
+        System.out.println();
+
+        System.out.println(String.format("%-30s %-30s %-20s %-20s %s", "Name", "Country", "Continent", "District", "Population"));
+        System.out.println(" ");
+        // Loop over all cities in the list
         for (City cty : cities)
         {
             if (cty == null)
                 continue;
+
             String cty_string =
-                    String.format("%-40s %-35s %-20s %-30s %-25s",
+                    String.format("%-30s %-30s %-20s %-20s %s",
                             cty.getName(), cty.getCountry().getName(), cty.getCountry().getContinent(), cty.getDistrict(), cty.getPopulation());
             System.out.println(cty_string);
         }
