@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - AyeThandarPhyo
+      - HsuYatiKhin
+      - suyadanawin
+      - kht
 jobs:
   UnitTests:
     name: Unit Tests
@@ -23,6 +26,19 @@ jobs:
           mvn -Dtest=com.napier.sem/AllCountriesInARegionTest.java test
           mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInTheWorldTest.java test
           mvn -Dtest=com.napier.sem/TopNPopulatedCountriesInARegionTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInACountryTest.java test
+          mvn -Dtest=com.napier.sem/AllCountriesInAContinentTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCountriesinacontinentTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCountriesintheworldTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInAContinentTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInARegionTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInAContinentTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInARegionTest.java test
+          mvn -Dtest=com.napier.sem/AllCountriesInWorldTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInADistrictTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInACountryTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInADistrictTest.java test
+  
   
 
   IntegrationTests:
@@ -46,6 +62,19 @@ jobs:
           mvn -Dtest=com.napier.sem/AllCountriesInARegionIntegrationTest.java test
           mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInTheWorldIntegrationTest.java test
           mvn -Dtest=com.napier.sem/TopNPopulatedCountriesInARegionIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInACountryIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/AllCountriesInAContinentIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCountriesinacontinentIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCountriesintheworldIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInAContinentIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInARegionIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInAContinentIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInARegionIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/AllCountriesInWorldIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/AllCitiesInADistrictIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInACountryIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInADistrictIntegrationTest.java test
+          
           docker stop world
           docker rm world
           docker image rm database

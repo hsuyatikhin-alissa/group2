@@ -8,7 +8,7 @@ public class Country {
     private String Region;
     private int Population;
 
-    private int Capital;
+    private String Capital;
 
     public String getCode() {
         return Code;
@@ -50,11 +50,11 @@ public class Country {
         Population = population;
     }
 
-    public int getCapital() {
+    public String getCapital() {
         return Capital;
     }
 
-    public void setCapital(int capital) {
+    public void setCapital(String capital) {
         Capital = capital;
     }
 }

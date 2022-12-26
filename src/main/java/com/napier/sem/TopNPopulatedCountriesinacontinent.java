@@ -29,8 +29,9 @@ public class TopNPopulatedCountriesinacontinent {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, capitalCity.Name AS Capital "
                             + "FROM country "
+                            + "JOIN city capitalCity ON capitalCity.ID = country.Capital "
                             + "WHERE country.Continent = '" + continent + "'\n"
                             + "ORDER BY country.Population DESC "
                             + "LIMIT " + limit + ";";
@@ -47,7 +48,7 @@ public class TopNPopulatedCountriesinacontinent {
                 cntry.setContinent(rset.getString(3));
                 cntry.setRegion(rset.getString(4));
                 cntry.setPopulation(rset.getInt(5));
-                cntry.setCapital(rset.getInt(6));
+                cntry.setCapital(rset.getString(6));
                 countries.add(cntry);
             }
             return countries;
