@@ -25,14 +25,12 @@ class AllCountriesInAContinentIntegrationTest {
         // check array list is null
         assertNotNull(countries);
         /*Check expected data are correct or not*/
-        assertEquals(countries.get(0).getCode(),"ABW");
-        assertEquals(countries.get(0).getName(),"Aruba");
-        assertEquals(countries.get(0).getContinent(),"North America");
-        assertEquals(countries.get(0).getRegion(),"Caribbean");
-        assertEquals(countries.get(0).getPopulation(),103000);
-        assertEquals(countries.get(0).getCapital(),129);
+        assertEquals(countries.get(0).getCode(),"CHN");
+        assertEquals(countries.get(0).getName(),"China");
+        assertEquals(countries.get(0).getContinent(),"Asia");
+        assertEquals(countries.get(0).getRegion(),"Eastern Asia");
+        assertEquals(countries.get(0).getPopulation(),1277558000);
+        assertEquals(countries.get(0).getCapital(),1891);
         // print report
     }
-
-
 }
