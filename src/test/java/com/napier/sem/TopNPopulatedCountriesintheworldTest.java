@@ -42,7 +42,7 @@ public class TopNPopulatedCountriesintheworldTest {
         country.setContinent("North America");
         country.setRegion("Caribbean");
         country.setPopulation(103000);
-        country.setCapital(129);
+        country.setCapital("Oranjestad");
         countries.add(country);
         app.printCountries(countries);
     }

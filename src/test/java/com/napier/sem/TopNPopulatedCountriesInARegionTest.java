@@ -5,14 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AllCountriesInARegionTest {
-    static com.napier.sem.AllCountriesInARegion app;
+public class TopNPopulatedCountriesInARegionTest {
+    static TopNPopulatedCountriesInARegion app;
 
     @BeforeAll
     static void init() {
-        app = new com.napier.sem.AllCountriesInARegion();
+        app = new TopNPopulatedCountriesInARegion();
     }
 
     @Test
@@ -37,12 +35,12 @@ public class AllCountriesInARegionTest {
     void printCountriesTest() {
         ArrayList<Country> countries = new ArrayList<>();
         Country country = new Country();
-        country.setCode("ABW");
-        country.setName("Aruba");
-        country.setContinent("North America");
-        country.setRegion("Caribbean");
-        country.setPopulation(103000);
-        country.setCapital(129);
+        country.setCode("KOR");
+        country.setName("South Korea");
+        country.setContinent("Asia");
+        country.setRegion("Eastern Asia");
+        country.setPopulation(46844000);
+        country.setCapital("Seoul");
         countries.add(country);
         app.printCountries(countries);
     }

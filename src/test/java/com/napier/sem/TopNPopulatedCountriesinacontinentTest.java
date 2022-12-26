@@ -42,7 +42,7 @@ public class TopNPopulatedCountriesinacontinentTest {
         country.setContinent("Asia");
         country.setRegion("Eastern Asia");
         country.setPopulation(46844000);
-        country.setCapital(2331);
+        country.setCapital("Seoul");
         countries.add(country);
         app.printCountries(countries);
     }

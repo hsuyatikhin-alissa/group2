@@ -2,18 +2,20 @@ package com.napier.sem;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class AllCountriesInARegionIntegrationTest {
-    static AllCountriesInARegion creg;
+class TopNPopulatedCountriesInARegionIntegrationTest {
+    static TopNPopulatedCountriesInARegion creg;
     static DBConnect db;
 
     @BeforeAll
     static void init() {
-        creg = new AllCountriesInARegion();
+        creg = new TopNPopulatedCountriesInARegion();
         db = new DBConnect();
         db.connect("Localhost:33060", 30000);
         creg.setCon(db.getCon());
@@ -30,7 +32,7 @@ class AllCountriesInARegionIntegrationTest {
         assertEquals(countries.get(0).getContinent(),"Asia");
         assertEquals(countries.get(0).getRegion(),"Eastern Asia");
         assertEquals(countries.get(0).getPopulation(),1277558000);
-        assertEquals(countries.get(0).getCapital(),1891);
+        assertEquals(countries.get(0).getCapital(),"Peking");
         // print report
     }
 }
