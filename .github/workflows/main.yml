@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - develop
+      - feature/AyeThandarPhyo
 jobs:
   UnitTests:
     name: Unit Tests
