@@ -21,10 +21,7 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: |
-          mvn -Dtest=com.napier.sem/AllCitiesInAContinentTest.java test
-          mvn -Dtest=com.napier.sem/AllCitiesInARegionTest.java test
-          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInAContinentTest.java test
-          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInARegionTest.java test
+          mvn -Dtest=com.napier.sem/UnitTest.java test
   
 
   IntegrationTests:
@@ -44,10 +41,7 @@ jobs:
         run: |
           docker build -t database ./db 
           docker run --name world -dp 33060:3306 database
-          mvn -Dtest=com.napier.sem/AllCitiesInAContinentIntegrationTest.java test
-          mvn -Dtest=com.napier.sem/AllCitiesInARegionIntegrationTest.java test
-          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInAContinentIntegrationTest.java test
-          mvn -Dtest=com.napier.sem/TopNPopulatedCitiesInARegionIntegrationTest.java test
+          mvn -Dtest=com.napier.sem/IntegrationTest.java test
           docker stop world
           docker rm world
           docker image rm database
