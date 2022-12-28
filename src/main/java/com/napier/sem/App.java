@@ -13,7 +13,7 @@ public class App {
         DBConnect dbcon = new DBConnect();
 
         if(args.length < 1){
-            dbcon.connect("localhost:33060", 30000);
+            dbcon.connect("localhost:33060", 3000);
         }else{
             dbcon.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -60,8 +60,10 @@ public class App {
          * 3. All the countries in a region organised by largest population to smallest.
          */
 
-
-
+        // Get all countries information in a region
+        ArrayList<Country> countriesreg = cntryrpt.getAllCountriesInARegion();
+        // Extract all countries information in a region
+        cntryrpt.printAllCountriesInARegion(countriesreg);
 
         /**
          * 4. The top N populated countries in the world where N is provided by the user.
@@ -77,9 +79,9 @@ public class App {
          * 5. The top N populated countries in a continent where N is provided by the user.
          */
 
-        // Get top N populated countries in a continent information in a continent
+        // Get top N populated countries in a continent information
         ArrayList<Country> countriestcon = cntryrpt.getTopNCountriesInAContinent();
-        // Extract top N populated countries in a continent information in a continent
+        // Extract top N populated countries in a continent information
         cntryrpt.printTopNCountriesInAContinent(countriestcon);
 
 
@@ -87,20 +89,19 @@ public class App {
          * 6. The top N populated countries in a region where N is provided by the user.
          */
 
-
-
-
-
-
+        // Get top N populated countries in a region information
+        ArrayList<Country> countriestreg = cntryrpt.getTopNPopulatedCountriesInARegion();
+        // Extract top N populated countries in a region information
+        cntryrpt.printTopNPopulatedCountriesInARegion(countriestreg);
 
         /**
          * 7. All the cities in the world organised by largest population to smallest.
          */
 
-
-
-
-
+        // Get all cities information in the world
+        ArrayList<City> citieswor = ctyrpt.getAllCitiesInTheWorld();
+        // Extract all cities information in the world
+        ctyrpt.printAllCitiesInTheWorld(citieswor);
 
         /**
          * 8. All the cities in a continent organised by largest population to smallest.
@@ -139,9 +140,10 @@ public class App {
         /**
          * 12. The top N populated cities in the world where N is provided by the user.
          */
-
-
-
+        // Get top N populated cities in the world information
+        ArrayList<City> citiestwor = ctyrpt.getTopNPopulatedCitiesInTheWorld();
+        // Extract top N populated countries in the world information
+        ctyrpt.printTopNPopulatedCitiesInTheWorld(citiestwor);
 
         /**
          * 13. The top N populated cities in a continent where N is provided by the user.

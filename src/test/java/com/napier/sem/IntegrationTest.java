@@ -18,7 +18,7 @@ public class IntegrationTest {
     @BeforeAll
     static void init() {
         db = new DBConnect();
-        db.connect("Localhost:33060", 30000);
+        db.connect("Localhost:33060", 3000);
 
         ctyrpt = new CityReport();
         ctyrpt.setCon(db.getCon());
@@ -65,9 +65,21 @@ public class IntegrationTest {
     /**
      * 3. Integration test for all the countries in a region organised by largest population to smallest.
      */
-
-
-
+    @Test
+    void testAllCountriesInARegion() throws SQLException {
+        // create array list
+        ArrayList<Country> countries = cntryrpt.getAllCountriesInARegion();
+        // check array list is null
+        assertNotNull(countries);
+        /*Check expected data are correct or not*/
+        assertEquals(countries.get(0).getCode(),"CHN");
+        assertEquals(countries.get(0).getName(),"China");
+        assertEquals(countries.get(0).getContinent(),"Asia");
+        assertEquals(countries.get(0).getRegion(),"Eastern Asia");
+        assertEquals(countries.get(0).getPopulation(),1277558000);
+        //assertEquals(countries.get(0).getCapital(),"Peking");
+        // print report
+    }
 
     /**
      * 4. Integration test for the top N populated countries in the world where N is provided by the user.
@@ -112,20 +124,38 @@ public class IntegrationTest {
      * 6. Integration test for the top N populated countries in a region where N is provided by the user.
      */
 
-
-
-
-
-
+    @Test
+    void testNPopulatedCountriesInARegion() throws SQLException {
+        // create array list
+        ArrayList<Country> countries = cntryrpt.getTopNPopulatedCountriesInARegion();
+        // check array list is null
+        assertNotNull(countries);
+        /*Check expected data are correct or not*/
+        assertEquals(countries.get(0).getCode(), "CHN");
+        assertEquals(countries.get(0).getName(), "China");
+        assertEquals(countries.get(0).getContinent(), "Asia");
+        assertEquals(countries.get(0).getRegion(), "Eastern Asia");
+        assertEquals(countries.get(0).getPopulation(), 1277558000);
+        //assertEquals(countries.get(0).getCapital(), "Peking");
+        // print report
+    }
 
     /**
      * 7. Integration test for all the cities in the world organised by largest population to smallest.
      */
 
+    @Test
+    void testAllCitiesInTheWorld() throws SQLException {
+        // create array list
+        ArrayList<City> cities = ctyrpt.getAllCitiesInTheWorld();
+        // check array list is null
+        assertNotNull(cities);
+        /*Check expected data are correct or not*/
+        assertEquals(cities.get(1).getName(),"Seoul");
+        assertEquals(cities.get(1).getCountryCode(),"KOR");
+        assertEquals(cities.get(1).getPopulation(),9981619);
 
-
-
-
+    }
 
     /**
      * 8. Integration test for all the cities in a continent organised by largest population to smallest.
@@ -196,9 +226,18 @@ public class IntegrationTest {
      * 12. Integration test for the top N populated cities in the world where N is provided by the user.
      */
 
-
-
-
+    @Test
+    void testTopNPopulatedCitiesInTheWorld() throws SQLException {
+        // create array list
+        ArrayList<City> cities = ctyrpt.getTopNPopulatedCitiesInTheWorld();
+        // check array list is null
+        assertNotNull(cities);
+        /*Check expected data are correct or not*/
+        assertEquals(cities.get(4).getName(),"Jakarta");
+        assertEquals(cities.get(4).getCountry().getName(),"Indonesia");
+        assertEquals(cities.get(4).getDistrict(),"Jakarta Raya");
+        assertEquals(cities.get(4).getPopulation(),9604900);
+    }
 
     /**
      * 13. Integration test for top N populated cities in a continent.

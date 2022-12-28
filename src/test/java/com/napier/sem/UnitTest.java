@@ -71,8 +71,37 @@ public class UnitTest {
      * 3. Unit tests for all the countries in a region organised by largest population to smallest.
      */
 
+    @Test
+    void printAllCountriesInARegionNullTest() {
+        cntryrpt.printAllCountriesInARegion(null);
+    }
 
+    @Test
+    void printAllCountriesInARegionTestEmpty() {
+        ArrayList<Country> countries = new ArrayList<>();
+        cntryrpt.printAllCountriesInARegion(countries);
+    }
 
+    @Test
+    void printAllCountriesInARegionTestContainsNull() {
+        ArrayList<Country> countries = new ArrayList<>();
+        countries.add(null);
+        cntryrpt.printAllCountriesInARegion(countries);
+    }
+
+    @Test
+    void printAllCountriesInARegionTest() {
+        ArrayList<Country> countries = new ArrayList<>();
+        Country country = new Country();
+        country.setCode("ABW");
+        country.setName("Aruba");
+        country.setContinent("North America");
+        country.setRegion("Caribbean");
+        country.setPopulation(103000);
+        country.setCapital("Oranjestad");
+        countries.add(country);
+        cntryrpt.printAllCountriesInARegion(countries);
+    }
 
     /**
      * 4. Unit tests for the top N populated countries in the world where N is provided by the user.
@@ -151,22 +180,70 @@ public class UnitTest {
      * 6. Unit tests for the top N populated countries in a region where N is provided by the user.
      */
 
+    @Test
+    void printTopNPopulatedCountriesInARegionNullTest() {
+        cntryrpt.printTopNPopulatedCountriesInARegion(null);
+    }
 
+    @Test
+    void printTopNPopulatedCountriesInARegionTestEmpty() {
+        ArrayList<Country> countries = new ArrayList<>();
+        cntryrpt.printTopNPopulatedCountriesInARegion(countries);
+    }
 
+    @Test
+    void printTopNPopulatedCountriesInARegionTestContainsNull() {
+        ArrayList<Country> countries = new ArrayList<>();
+        countries.add(null);
+        cntryrpt.printTopNPopulatedCountriesInARegion(countries);
+    }
 
-
-
+    @Test
+    void printTopNPopulatedCountriesInARegionTest() {
+        ArrayList<Country> countries = new ArrayList<>();
+        Country country = new Country();
+        country.setCode("KOR");
+        country.setName("South Korea");
+        country.setContinent("Asia");
+        country.setRegion("Eastern Asia");
+        country.setPopulation(46844000);
+        country.setCapital("Seoul");
+        countries.add(country);
+        cntryrpt.printTopNPopulatedCountriesInARegion(countries);
+    }
 
     /**
      * 7. Unit tests for all the cities in the world organised by largest population to smallest.
      */
 
+    @Test
+    void printAllCitiesInTheWorldNullTest() {
+        ctyrpt.printAllCitiesInTheWorld(null);
+    }
 
+    @Test
+    void printAllCitiesInTheWorldTestEmpty() {
+        ArrayList<City> cities = new ArrayList<>();
+        ctyrpt.printAllCitiesInTheWorld(cities);
+    }
 
+    @Test
+    void printAllCitiesInTheWorldTestContainsNull() {
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(null);
+        ctyrpt.printAllCitiesInTheWorld(cities);
+    }
 
-
-
-
+    @Test
+    void printAllCitiesInTheWorldTest() {
+        ArrayList<City> cities = new ArrayList<>();
+        City city = new City();
+        city.setName("Kabul");
+        city.setCountryCode("AFG");
+        city.setPopulation(1780000);
+        cities.add(city);
+        ctyrpt.printAllCitiesInTheWorld(cities);
+    }
 
     /**
      * 8. Unit tests for all the cities in a continent organised by largest population to smallest.
@@ -297,10 +374,38 @@ public class UnitTest {
      * 12. Unit tests for the top N populated cities in the world where N is provided by the user.
      */
 
+    @Test
+    void printTopNPopulatedCitiesInTheWorldNullTest() {
+        ctyrpt.printTopNPopulatedCitiesInTheWorld(null);
+    }
 
+    @Test
+    void printTopNPopulatedCitiesInTheWorldTestEmpty() {
+        ArrayList<City> cities = new ArrayList<>();
+        ctyrpt.printTopNPopulatedCitiesInTheWorld(cities);
+    }
 
+    @Test
+    void printTopNPopulatedCitiesInTheWorldTestContainsNull() {
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(null);
+        ctyrpt.printTopNPopulatedCitiesInTheWorld(cities);
+    }
 
-
+    @Test
+    void printTopNPopulatedCitiesInTheWorldTest() {
+        ArrayList<City> cities = new ArrayList<>();
+        City city = new City();
+        Country country = new Country();
+        city.setName("China");
+        country.setContinent("Asia");
+        country.setRegion("Eastern Asia");
+        city.setCountry(country);
+        city.setCountryCode("CHN");
+        city.setPopulation(1277558000);
+        cities.add(city);
+        ctyrpt.printTopNPopulatedCitiesInTheWorld(cities);
+    }
 
     /**
      * 13. Unit tests for top N populated cities in a continent.
