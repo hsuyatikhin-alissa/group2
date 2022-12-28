@@ -50,7 +50,10 @@ public class App {
          * 2. All the countries in a continent organised by largest population to smallest.
          */
 
-
+        // Get all countries information in a continent
+        ArrayList<Country> countriescon = cntryrpt.getAllCountriesInAContinent();
+        // Extract all countries information in a continent
+        cntryrpt.printAllCountriesInAContinent(countriescon);
 
 
         /**
@@ -64,17 +67,20 @@ public class App {
          * 4. The top N populated countries in the world where N is provided by the user.
          */
 
-
-
-
+        // Get top N populated countries in the world information in a continent
+        ArrayList<Country> countriestwor = cntryrpt.getTopNCountriesInTheWorld();
+        // Extract top N populated countries in the world information in a continent
+        cntryrpt.printTopNCountriesInTheWorld(countriestwor);
 
 
         /**
          * 5. The top N populated countries in a continent where N is provided by the user.
          */
 
-
-
+        // Get top N populated countries in a continent information in a continent
+        ArrayList<Country> countriestcon = cntryrpt.getTopNCountriesInAContinent();
+        // Extract top N populated countries in a continent information in a continent
+        cntryrpt.printTopNCountriesInAContinent(countriestcon);
 
 
         /**
@@ -118,8 +124,10 @@ public class App {
          * 10. All the cities in a country organised by largest population to smallest.
          */
 
-
-
+        // Get all cities information in a continent
+        ArrayList<City> citiescou = ctyrpt.getAllCitiesInACountry();
+        // Extract all cities information in a continent
+        ctyrpt.printAllCitiesInACountry(citiescou);
 
         /**
          * 11. All the cities in a district organised by largest population to smallest.
