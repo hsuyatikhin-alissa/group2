@@ -25,10 +25,38 @@ public class UnitTest {
     /**
      * 1. Unit tests for all the countries in the world organised by largest population to smallest.
      */
+    @Test
+    void printCountriesIntheWorldNullTest() {
+        cntryrpt.printCountriesIntheWorld(null);
+    }
 
+    @Test
+    void printCountriesIntheWorldTestEmpty() {
+        ArrayList<Country> countries = new ArrayList<>();
+        cntryrpt.printCountriesIntheWorld(countries);
+    }
 
+    @Test
+    void printCountriesIntheWorldTestContainsNull() {
+        ArrayList<Country> countries = new ArrayList<>();
+        countries.add(null);
+        cntryrpt.printCountriesIntheWorld(countries);
+    }
 
+    @Test
+    void printCountriesIntheWorldTest() {
+        ArrayList<Country> countries = new ArrayList<>();
+        Country country = new Country();
+        country.setCode("ABW");
+        country.setName("Aruba");
+        country.setContinent("North America");
+        country.setRegion("Caribbean");
+        country.setPopulation(103000);
+        country.setCapital("Oranjestad");
 
+        countries.add(country);
+        cntryrpt.printCountriesIntheWorld(countries);
+    }
 
     /**
      * 2. Unit tests for all the countries in a continent organised by largest population to smallest.
@@ -362,12 +390,41 @@ public class UnitTest {
         ctyrpt.printAllCitiesInACountry(cities);
     }
 
-
     /**
      * 11. Unit tests for all the cities in a district organised by largest population to smallest.
      */
+    @Test
+    void printCitiesInADistrictNullTest() {
+        ctyrpt.printCitiesInADistrict(null);
+    }
 
+    @Test
+    void printCitiesInADistrictTestEmpty() {
+        ArrayList<City> cities = new ArrayList<>();
+        ctyrpt.printCitiesInADistrict(cities);
+    }
 
+    @Test
+    void printCitiesInADistrictTestContainsNull() {
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(null);
+        ctyrpt.printCitiesInADistrict(cities);
+    }
+
+    @Test
+    void printCitiesInADistrictTest() {
+        ArrayList<City> cities = new ArrayList<>();
+        City city = new City();
+        Country country = new Country();
+        city.setName("Seoul");
+        country.setName("South Korea");
+        country.setContinent("Asia");
+        city.setDistrict("Seoul");
+        city.setPopulation(9981619);
+        city.setCountry(country);
+        cities.add(city);
+        ctyrpt.printCitiesInADistrict(cities);
+    }
 
 
     /**
@@ -488,21 +545,73 @@ public class UnitTest {
     /**
      * 15. Unit tests for the top N populated cities in a country where N is provided by the user.
      */
+    @Test
+    void printTopCitiesInACountryNullTest() {
+        ctyrpt.printTopCitiesInACountry(null);
+    }
 
+    @Test
+    void printTopCitiesInACountryTestEmpty() {
+        ArrayList<City> cities = new ArrayList<>();
+        ctyrpt.printTopCitiesInACountry(cities);
+    }
 
+    @Test
+    void printTopCitiesInACountryTestContainsNull() {
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(null);
+        ctyrpt.printTopCitiesInACountry(cities);
+    }
+
+    @Test
+    void printTopCitiesInACountryTest() {
+        ArrayList<City> cities = new ArrayList<>();
+        City city = new City();
+        Country country = new Country();
+        city.setName("Seoul");
+        country.setName("South Korea");
+        country.setContinent("Asia");
+        city.setDistrict("Seoul");
+        city.setPopulation(9981619);
+        city.setCountry(country);
+        cities.add(city);
+        ctyrpt.printTopCitiesInACountry(cities);
+    }
 
 
     /**
      * 16. Unit tests for the top N populated cities in a district where N is provided by the user.
      */
+    @Test
+    void printTopCitiesInADistrictNullTest() {
+        ctyrpt.printTopCitiesInADistrict(null);
+    }
 
+    @Test
+    void pprintTopCitiesInADistrictTestEmpty() {
+        ArrayList<City> cities = new ArrayList<>();
+        ctyrpt.printTopCitiesInADistrict(cities);
+    }
 
+    @Test
+    void printTopCitiesInADistrictTestContainsNull() {
+        ArrayList<City> cities = new ArrayList<>();
+        cities.add(null);
+        ctyrpt.printTopCitiesInADistrict(cities);
+    }
 
-
-
-
-
-
-
-
+    @Test
+    void printTopCitiesInADistrictTest() {
+        ArrayList<City> cities = new ArrayList<>();
+        City city = new City();
+        Country country = new Country();
+        city.setName("Seoul");
+        country.setName("South Korea");
+        country.setContinent("Asia");
+        city.setDistrict("Seoul");
+        city.setPopulation(9981619);
+        city.setCountry(country);
+        cities.add(city);
+        ctyrpt.printTopCitiesInADistrict(cities);
+    }
 }
