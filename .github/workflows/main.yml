@@ -6,7 +6,7 @@ on:
       - develop
       - feature/AyeThandarPhyo
       - feature/kht
-      - feature/hsuyatikhin
+      - feature/HsuYatiKhin
       - feature/suyadanawin
 jobs:
   UnitTests:

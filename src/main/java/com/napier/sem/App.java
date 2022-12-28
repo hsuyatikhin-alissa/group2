@@ -116,9 +116,9 @@ public class App {
          * 9. All the cities in a region organised by largest population to smallest.
          */
 
-        // Get all cities information in a continent
+        // Get all cities information in a region
         ArrayList<City> citiesreg = ctyrpt.getAllCitiesInARegion();
-        // Extract all cities information in a continent
+        // Extract all cities information in a region
         ctyrpt.printAllCitiesInARegion(citiesreg);
 
         /**
@@ -149,18 +149,18 @@ public class App {
          * 13. The top N populated cities in a continent where N is provided by the user.
          */
 
-        // Get all cities information in a continent
+        // Get top N populated cities in a continent information
         ArrayList<City> citiesncon = ctyrpt.getTopNCitiesInAContinent();
-        // Extract all cities information in a continent
+        // Extract top N populated cities in a continent information
         ctyrpt.printTopNCitiesInAContinent(citiesncon);
 
         /**
          * 14. The top N populated cities in a region where N is provided by the user.
          */
 
-        // Get all cities information in a continent
+        // Get top N populated cities in a region information
         ArrayList<City> citiesnreg = ctyrpt.getTopNCitiesInARegion();
-        // Extract all cities information in a continent
+        // Extract top N populated cities in a region information
         ctyrpt.printTopNCitiesInARegion(citiesnreg);
 
         /**
