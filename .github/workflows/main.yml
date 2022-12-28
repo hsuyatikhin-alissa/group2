@@ -5,6 +5,9 @@ on:
       - master
       - develop
       - feature/AyeThandarPhyo
+      - feature/kht
+      - feature/hsuyatikhin
+      - feature/suyadanawin
 jobs:
   UnitTests:
     name: Unit Tests
