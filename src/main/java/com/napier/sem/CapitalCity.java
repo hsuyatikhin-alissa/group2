@@ -19,11 +19,11 @@ public class CapitalCity {
         Country = country;
     }
 
-    public Integer getPopulation() {
+    public int getPopulation() {
         return Population;
     }
 
-    public void setPopulation(Integer population) {
+    public void setPopulation(int population) {
         Population = population;
     }
 
@@ -45,7 +45,7 @@ public class CapitalCity {
 
     private String Country;
 
-    private Integer Population;
+    private int Population;
 
     private String Continent;
 
