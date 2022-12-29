@@ -447,7 +447,7 @@ public class CityReport {
 //            SELECT city.Name, country.Name, country.Continent, city.District, city.Population FROM city JOIN country country ON country.Code = city.CountryCode WHERE country.Continent = "Asia" ORDER BY Population DESC LIMIT 3;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
