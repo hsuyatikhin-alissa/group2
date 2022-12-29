@@ -41,9 +41,10 @@ public class App {
         /**
          * 1. All the countries in the world organised by largest population to smallest.
          */
-
-
-
+        // Get all countries information in the world
+        ArrayList<Country> ctrwo = cntryrpt.getAllCountriesIntheWorld();
+        // Extract all countries information in a continent
+        cntryrpt.printCountriesIntheWorld(ctrwo);
 
 
         /**
@@ -136,9 +137,10 @@ public class App {
         /**
          * 11. All the cities in a district organised by largest population to smallest.
          */
-
-
-
+        // Get all cities information in a district
+        ArrayList<City> citiesdist = ctyrpt.getAllCitiesInADistrict();
+        // Extract all cities information in a district
+        ctyrpt.printCitiesInADistrict(citiesdist);
 
         /**
          * 12. The top N populated cities in the world where N is provided by the user.
@@ -171,13 +173,19 @@ public class App {
         /**
          * 15. The top N populated cities in a country where N is provided by the user.
          */
-
-
+        // Get all cities information in a country
+        ArrayList<City> citiesncntry = ctyrpt.getTopCitiesInACountry();
+        // Extract all cities information in a country
+        ctyrpt.printTopCitiesInACountry(citiesncntry);
 
 
         /**
          * 16. The top N populated cities in a district where N is provided by the user.
          */
+        // Get all cities information in a district
+        ArrayList<City> citiesndist = ctyrpt.getTopCitiesInADistrict();
+        // Extract all cities information in a district
+        ctyrpt.printTopCitiesInADistrict(citiesndist);
 
 
         /**
@@ -280,7 +288,38 @@ public class App {
         // Extract population of a continent information.
         poprpt.printPopulationPeopleInAContinent(popcon);
 
+        /**
+         * 28. The population of a region.
+         */
+        // Get population of a region information
+        ArrayList<Population> popReg = poprpt.getPopulationPeopleInARegion();
+        // Extract population of a region
+        poprpt.printPopulationPeopleInARegion(popReg);
 
+        /**
+         * 29. The population of a country.
+         */
+        // Get population of a country information
+        ArrayList<Population> popCntry = poprpt.getPopulationPeopleInACountry();
+        // Extract population of a country
+        poprpt.printPopulationPeopleInACountry(popCntry);
+
+        /**
+         * 30. The population of a district.
+         */
+        // Get population of a district information
+        ArrayList<Population> popDist = poprpt.getPopulationPeopleInADistrict();
+        // Extract population of a country
+        poprpt.printPopulationPeopleInADistrict(popDist);
+
+
+        /**
+         * 31. The population of a city.
+         */
+        // Get population of a district information
+        ArrayList<Population> popCity = poprpt.getPopulationPeopleInACity();
+        // Extract population of a country
+        poprpt.printPopulationPeopleInACity(popCity);
 
 
     }

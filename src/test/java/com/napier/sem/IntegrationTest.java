@@ -512,12 +512,63 @@ public class IntegrationTest {
         // check array list is null
         assertNotNull(pops);
         /*Check expected data are correct or not*/
-        assertEquals(pops.get(0).getPopulation(),482993000l);
+        assertEquals(pops.get(0).getPopulation(),3705025700l);
         // print report
     }
 
+    /**
+     * 28. The population of a region.
+     */
+    @Test
+    void testPopulationPeopleInARegion() throws SQLException {
+        // create array list
+        ArrayList<Population> pops = poprpt.getPopulationPeopleInARegion();
+        // check array list is null
+        assertNotNull(pops);
+        /*Check expected data are correct or not*/
+        assertEquals(pops.get(0).getPopulation(),309632000l);
+        // print report
+    }
 
+    /**
+     * 29. The population of a country.
+     */
+    @Test
+    void testPopulationPeopleInACountry() throws SQLException {
+        // create array list
+        ArrayList<Population> pops = poprpt.getPopulationPeopleInACountry();
+        // check array list is null
+        assertNotNull(pops);
+        /*Check expected data are correct or not*/
+        assertEquals(pops.get(0).getPopulation(),59623400l);
+        // print report
+    }
 
+    /**
+     * 30. The population of a district.
+     */
+    @Test
+    void testPopulationPeopleInADistrict() throws SQLException {
+        // create array list
+        ArrayList<Population> pops = poprpt.getPopulationPeopleInADistrict();
+        // check array list is null
+        assertNotNull(pops);
+        /*Check expected data are correct or not*/
+        assertEquals(pops.get(0).getPopulation(),8547585l);
+        // print report
+    }
 
-
+    /**
+     * 31. The population of a city.
+     */
+    @Test
+    void testPopulationPeopleInACity() throws SQLException {
+        // create array list
+        ArrayList<Population> pops = poprpt.getPopulationPeopleInACity();
+        // check array list is null
+        assertNotNull(pops);
+        /*Check expected data are correct or not*/
+        assertEquals(pops.get(0).getPopulation(),589141l);
+        // print report
+    }
 }

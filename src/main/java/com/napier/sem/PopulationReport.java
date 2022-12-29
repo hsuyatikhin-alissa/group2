@@ -6,8 +6,10 @@ import java.util.ArrayList;
 public class PopulationReport {
 
     private String continent = "Asia"; //Assign Asia as user's input continent.
-
     private String region = "North America"; //Assign Caribbean as user input region.
+    private String country = "United Kingdom"; //Assign Caribbean as user input country.
+    private String district = "Hubei"; //Assign Caribbean as user input region.
+    private String city = "Boston"; //Assign Caribbean as user input region.
 
     /**
      * Connection to MySQL database.
@@ -272,7 +274,6 @@ public class PopulationReport {
         System.out.println("26. The population of the world.");
         //Print report title
 //        System.out.format("%s", "POPULATION");
-        System.out.println("\n");
         for (Population population : pops) {
             if (population == null)
                 continue;
@@ -294,7 +295,7 @@ public class PopulationReport {
             Statement stmt = con.createStatement();
             //Write sql retrieve query for report
             String strSelect =
-                    "SELECT SUM(country.Population) AS Population FROM country WHERE country.Continent = continent GROUP BY country.Continent";
+                    "SELECT SUM(country.Population) AS Population FROM country WHERE country.Continent = '" + continent + "' GROUP BY country.Continent";
 //            SUM((SELECT SUM(Population) FROM city WHERE CountryCode = country.Code))
             //Create populations arraylist to store population data
             ArrayList<Population> populations = new ArrayList<Population>();
@@ -330,7 +331,6 @@ public class PopulationReport {
         System.out.println("27. The population of Asia");
         //Print report title
         String.format("%-10s  %s", "Continent", "Population");
-        System.out.println("\n");
         for (Population population : pops) {
             if (population == null)
                 continue;
@@ -338,6 +338,226 @@ public class PopulationReport {
             String pworld_string =
                     String.format("%-40s", population.getPopulation());
             System.out.println("Total Asia Population: "+pworld_string);
+        }
+        System.out.println();
+    }
+
+    /**
+     * 28. The population of a region.
+     */
+    public ArrayList<Population> getPopulationPeopleInARegion() {
+        try {
+            //Assign connection object to statement variable
+            Statement stmt = con.createStatement();
+            //Write sql retrieve query for report
+            String strSelect =
+                    "SELECT SUM(country.Population) AS Population FROM country WHERE country.Region = '" + region + "' GROUP BY country.Region";
+//            SUM((SELECT SUM(Population) FROM city WHERE CountryCode = country.Code))
+            //Create populations arraylist to store population data
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Run sql retrieve query and assign result to resultSet variable
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Retrieve data from resultSet by using while loop
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.setPopulation(rset.getLong("Population"));
+                populations.add(population);
+            }
+            return populations;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of population in region.
+     *
+     * @param pops The list of population in a region to print.
+     */
+    public void printPopulationPeopleInARegion(ArrayList<Population> pops) {
+        // Check Countries is not null
+        if (pops == null) {
+            System.out.println("No population");
+            return;
+        }
+        // Print header
+        System.out.println("28. The population of a region.");
+        //Print report title
+        String.format("%-10s  %s", "Region", "Population");
+        for (Population population : pops) {
+            if (population == null)
+                continue;
+            String pregion_string =
+                    String.format("%-40s", population.getPopulation());
+            System.out.println("Total Population of the North America region: "+pregion_string);
+        }
+        System.out.println();
+    }
+
+
+    /**
+     * 29. The population of a country.
+     */
+    public ArrayList<Population> getPopulationPeopleInACountry() {
+        try {
+            //Assign connection object to statement variable
+            Statement stmt = con.createStatement();
+            //Write sql retrieve query for report
+            String strSelect =
+                    "SELECT SUM(country.Population) AS Population FROM country WHERE country.Name = '" + country + "' GROUP BY country.Name";
+            //Create populations arraylist to store population data
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Run sql retrieve query and assign result to resultSet variable
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Retrieve data from resultSet by using while loop
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.setPopulation(rset.getLong("Population"));
+                populations.add(population);
+            }
+            return populations;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of population in region.
+     *
+     * @param pops The list of population in a region to print.
+     */
+    public void printPopulationPeopleInACountry(ArrayList<Population> pops) {
+        // Check Countries is not null
+        if (pops == null) {
+            System.out.println("No population");
+            return;
+        }
+        // Print header
+        System.out.println("29. The population of a country.");
+        //Print report title
+        String.format("%-10s  %s", "Country", "Population");
+        for (Population population : pops) {
+            if (population == null)
+                continue;
+            String pcntry_string =
+                    String.format("%-40s", population.getPopulation());
+            System.out.println("Total Population of the United Kingdom region: "+pcntry_string);
+        }
+        System.out.println();
+    }
+
+
+    /**
+     * 30. The population of a district.
+     */
+    public ArrayList<Population> getPopulationPeopleInADistrict() {
+        try {
+            //Assign connection object to statement variable
+            Statement stmt = con.createStatement();
+            //Write sql retrieve query for report
+            String strSelect =
+                    "SELECT SUM(city.Population) AS Population FROM city WHERE city.District = '" + district + "' GROUP BY city.District";
+            //Create populations arraylist to store population data
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Run sql retrieve query and assign result to resultSet variable
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Retrieve data from resultSet by using while loop
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.setPopulation(rset.getLong("Population"));
+                populations.add(population);
+            }
+            return populations;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of population in region.
+     *
+     * @param pops The list of population in a region to print.
+     */
+    public void printPopulationPeopleInADistrict(ArrayList<Population> pops) {
+        // Check Countries is not null
+        if (pops == null) {
+            System.out.println("No population");
+            return;
+        }
+        // Print header
+        System.out.println("30. The population of a district.");
+        //Print report title
+        String.format("%-10s  %s", "District", "Population");
+        for (Population population : pops) {
+            if (population == null)
+                continue;
+            String pdist_string =
+                    String.format("%-40s", population.getPopulation());
+            System.out.println("Total Population of the Hubei district: "+pdist_string);
+        }
+        System.out.println();
+    }
+
+
+    /**
+     * 31. The population of a city.
+     */
+    public ArrayList<Population> getPopulationPeopleInACity() {
+        try {
+            //Assign connection object to statement variable
+            Statement stmt = con.createStatement();
+            //Write sql retrieve query for report
+            String strSelect =
+                    "SELECT SUM(city.Population) AS Population FROM city WHERE city.Name = '" + city + "' GROUP BY city.Name";
+            //Create populations arraylist to store population data
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Run sql retrieve query and assign result to resultSet variable
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Retrieve data from resultSet by using while loop
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.setPopulation(rset.getLong("Population"));
+                populations.add(population);
+            }
+            return populations;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of population in region.
+     *
+     * @param pops The list of population in a region to print.
+     */
+    public void printPopulationPeopleInACity(ArrayList<Population> pops) {
+        // Check City is not null
+        if (pops == null) {
+            System.out.println("No population");
+            return;
+        }
+        // Print header
+        System.out.println("31. The population of a city.");
+        //Print report title
+        String.format("%-10s  %s", "City", "Population");
+        for (Population population : pops) {
+            if (population == null)
+                continue;
+            String pcty_string =
+                    String.format("%-40s", population.getPopulation());
+            System.out.println("Total Population of the Boston City: "+pcty_string);
         }
         System.out.println();
     }
