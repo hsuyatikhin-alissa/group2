@@ -41,9 +41,6 @@ Hello
 
 * Code Coverage [![codecov](https://codecov.io/gh/SaiWunnaAung/group4/branch/master/graph/badge.svg?token=GR5UHCYCPW)](https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
 
-## Link to Our Project from Zube
-https://zube.io/gp7-2/earth/w/workspace-1/kanban
-
 # Bug Reporting System
 ![](screenshot/bug_reporting.PNG)
 
