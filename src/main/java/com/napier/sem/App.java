@@ -60,7 +60,10 @@ public class App {
          * 3. All the countries in a region organised by largest population to smallest.
          */
 
-
+        // Get all countries information in a region
+        ArrayList<Country> countriesreg = cntryrpt.getAllCountriesInARegion();
+        // Extract all countries information in a region
+        cntryrpt.printAllCountriesInARegion(countriesreg);
 
 
         /**
@@ -87,19 +90,20 @@ public class App {
          * 6. The top N populated countries in a region where N is provided by the user.
          */
 
-
-
-
-
+        // Get top N populated countries in a region information
+        ArrayList<Country> countriestreg = cntryrpt.getTopNPopulatedCountriesInARegion();
+        // Extract top N populated countries in a region information
+        cntryrpt.printTopNPopulatedCountriesInARegion(countriestreg);
 
 
         /**
          * 7. All the cities in the world organised by largest population to smallest.
          */
 
-
-
-
+        // Get all cities information in the world
+        ArrayList<City> citieswor = ctyrpt.getAllCitiesInTheWorld();
+        // Extract all cities information in the world
+        ctyrpt.printAllCitiesInTheWorld(citieswor);
 
 
         /**
@@ -140,7 +144,10 @@ public class App {
          * 12. The top N populated cities in the world where N is provided by the user.
          */
 
-
+        // Get top N populated cities in the world information
+        ArrayList<City> citiestwor = ctyrpt.getTopNPopulatedCitiesInTheWorld();
+        // Extract top N populated countries in the world information
+        ctyrpt.printTopNPopulatedCitiesInTheWorld(citiestwor);
 
 
         /**
