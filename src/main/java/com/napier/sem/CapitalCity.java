@@ -1,7 +1,16 @@
 package com.napier.sem;
 
+/**
+ * Represents capital city
+ */
+
 public class CapitalCity {
+
     private String Name;
+
+    private String Country;
+
+    private int Population;
 
     public String getName() {
         return Name;
@@ -26,29 +35,5 @@ public class CapitalCity {
     public void setPopulation(int population) {
         Population = population;
     }
-
-    public String getContinent() {
-        return Continent;
-    }
-
-    public void setContinent(String continent) {
-        Continent = continent;
-    }
-
-    public String getRegion() {
-        return Region;
-    }
-
-    public void setRegion(String region) {
-        Region = region;
-    }
-
-    private String Country;
-
-    private int Population;
-
-    private String Continent;
-
-    private String Region;
 
 }
