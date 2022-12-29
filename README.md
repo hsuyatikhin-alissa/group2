@@ -16,7 +16,7 @@ Hello
 | Role          | Member Name      | Matric No |
 |---------------|------------------|-----------|
 | Product Owner | Kyaw Hsu Thway   | 40516572  |
-| Scurm Master  | Hsu Yati Khin    | 40516605  |
+| Scrum Master  | Hsu Yati Khin    | 40516605  |
 | Team Member   | Aye Thandar Phyo | 40524297  |
 | Team Member   | Su Yadana Win    | 40524297  |
 
