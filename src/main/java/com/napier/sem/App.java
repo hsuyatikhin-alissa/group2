@@ -253,6 +253,35 @@ public class App {
         // Extract all cities information in a continent
         poprpt.printPopulationPeopleInRegion(pops);
 
+        /**
+         * 25. The population of people, people living in cities, and people not living in cities in each country.
+         */
+
+        // Get population information in each country
+        ArrayList<Population> popcoun = poprpt.getPopulationPeopleInCountry();
+        // Extract population information in each country
+        poprpt.printPopulationPeopleInCountry(popcoun);
+
+        /**
+         * 26. The population of the world.
+         */
+
+        // Get population of the world information.
+        ArrayList<Population> popwor = poprpt.getPopulationPeopleInTheWorld();
+        // Extract population of the world information.
+        poprpt.printPopulationPeopleInTheWorld(popwor);
+
+        /**
+         * 27. The population of a continent.
+         */
+
+        // Get population of a continent information.
+        ArrayList<Population> popcon = poprpt.getPopulationPeopleInAContinent();
+        // Extract population of a continent information.
+        poprpt.printPopulationPeopleInAContinent(popcon);
+
+
+
 
     }
 
