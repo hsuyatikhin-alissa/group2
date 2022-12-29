@@ -249,6 +249,76 @@ public class IntegrationTest {
      * 16. Integration test for the top N populated cities in a district where N is provided by the user.
      */
 
+    /**
+     * 17. Integration test for all the capital cities in the world organised by largest population to smallest.
+     */
+
+    @Test
+    void testAllCapitalCitiesInTheWorld() throws SQLException {
+        // create array list
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getAllCapitalCitiesInTheWorld();
+        // check array list is null
+        assertNotNull(capitalCities);
+        /*Check expected data are correct or not*/
+        assertEquals(capitalCities.get(0).getName(),"Seoul");
+        assertEquals(capitalCities.get(0).getCountry(),"South Korea");
+        assertEquals(capitalCities.get(0).getPopulation(),9981619);
+        // print report
+    }
+
+    /**
+     * 18. Integration test for all the capital cities in a continent organised by largest population to smallest.
+     */
+
+    @Test
+    void testAllCapitalCitiesInAContinent() throws SQLException {
+        // create array list
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getAllCapitalCitiesInAContinent();
+        // check array list is null
+        assertNotNull(capitalCities);
+        /*Check expected data are correct or not*/
+        assertEquals(capitalCities.get(0).getName(),"Mumbai (Bombay)");
+        assertEquals(capitalCities.get(0).getCountry(),"India");
+        assertEquals(capitalCities.get(0).getPopulation(),10500000);
+        // print report
+    }
+
+    /**
+     * 19. Integration test for all the capital cities in a region organised by largest population to smallest.
+     */
+
+    @Test
+    void testAllCapitalCitiesInARegion() throws SQLException {
+        // create array list
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getAllCapitalCitiesInARegion();
+        // check array list is null
+        assertNotNull(capitalCities);
+        /*Check expected data are correct or not*/
+        assertEquals(capitalCities.get(0).getName(),"Seoul");
+        assertEquals(capitalCities.get(0).getCountry(),"South Korea");
+        assertEquals(capitalCities.get(0).getPopulation(),9981619);
+        // print report
+    }
+
+    /**
+     * 20. Integration test for the top N populated capital cities in the world where N is provided by the user.
+     */
+
+    @Test
+    void testTopNPopulatedCapitalCitiesInTheWorld() throws SQLException {
+        // create array list
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getTopNPopulatedCapitalCitiesInTheWorld();
+        // check array list is null
+        assertNotNull(capitalCities);
+        /*Check expected data are correct or not*/
+        assertEquals(capitalCities.get(0).getName(),"Seoul");
+        assertEquals(capitalCities.get(0).getCountry(),"South Korea");
+        assertEquals(capitalCities.get(0).getPopulation(),9981619);
+        // print report
+    }
+
+
+
 
 
 

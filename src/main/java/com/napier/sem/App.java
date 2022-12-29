@@ -173,9 +173,44 @@ public class App {
          */
 
 
+        /**
+         * 17. All the capital cities in the world organised by largest population to smallest.
+         */
+
+        // Get all capital cities information in the world
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getAllCapitalCitiesInTheWorld();
+        // Extract all capital cities information in the world
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+
+        /**
+         * 18. All the capital cities in a continent organised by largest population to smallest.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<CapitalCity> capitalCities1 = cctyrpt.getAllCapitalCitiesInAContinent();
+        // Extract all capital cities information in a continent
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities1);
+
+        /**
+         * 19. All the capital cities in a region organised by largest population to smallest.
+         */
+
+        // Get all capital cities information in a region
+        ArrayList<CapitalCity> capitalCities2 = cctyrpt.getAllCapitalCitiesInARegion();
+        // Extract all capital cities information in a region
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities2);
+
+
+        /**
+         * 20. The top N populated capital cities in the world where N is provided by the user.
+         */
+
+        // Get top N populated capital cities in the world
+        ArrayList<CapitalCity> capitalCities3 = cctyrpt.getTopNPopulatedCapitalCitiesInTheWorld();
+        // Extract top N populated capital cities in the world
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities3);
+
 
     }
-
-
 
 }

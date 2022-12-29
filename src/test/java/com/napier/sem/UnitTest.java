@@ -386,10 +386,151 @@ public class UnitTest {
 
 
 
-
     /**
      * 16. Unit tests for the top N populated cities in a district where N is provided by the user.
      */
+
+
+
+
+    /**
+     * 17. Unit tests for all the capital cities in the world organised by largest population to smallest.
+     */
+
+    @Test
+    void printAllCapitalCitiesInTheWorldNullTest() {
+        cctyrpt.printAllCapitalCitiesInTheWorld(null);
+    }
+
+    @Test
+    void printAllCapitalCitiesInTheWorldTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInTheWorldTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInTheWorldTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Seoul");
+        ccty.setCountry("South Korea");
+        ccty.setPopulation(9981619);
+        capitalCities.add(ccty);
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+    }
+
+
+    /**
+     * 18. Unit tests for all the capital cities in a continent organised by largest population to smallest.
+     */
+
+    @Test
+    void printAllCapitalCitiesInAContinentNullTest() {
+        cctyrpt.printAllCapitalCitiesInAContinent(null);
+    }
+
+    @Test
+    void printAllCapitalCitiesInAContinentTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInAContinentTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInAContinentTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Mumbai (Bombay)");
+        ccty.setCountry("India");
+        ccty.setPopulation(10500000);
+        capitalCities.add(ccty);
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities);
+    }
+
+    /**
+     * 19. Unit tests for all the capital cities in a region organised by largest population to smallest.
+     */
+
+
+    @Test
+    void printAllCapitalCitiesInARegionNullTest() {
+        cctyrpt.printAllCapitalCitiesInARegion(null);
+    }
+
+    @Test
+    void printAllCapitalCitiesInARegionTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInARegionTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInARegionTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Seoul");
+        ccty.setCountry("South Korea");
+        ccty.setPopulation(9981619);
+        capitalCities.add(ccty);
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities);
+    }
+
+
+
+
+    /**
+     * 20. Unit tests for the top N populated capital cities in the world where N is provided by the user.
+     */
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldNullTest() {
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(null);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Seoul");
+        ccty.setCountry("South Korea");
+        ccty.setPopulation(9981619);
+        capitalCities.add(ccty);
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities);
+    }
+
+
 
 
 
