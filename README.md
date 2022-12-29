@@ -8,7 +8,7 @@
 | Product Owner | Kyaw Hsu Thway   | 40516572  |
 | Scrum Master  | Hsu Yati Khin    | 40516605  |
 | Team Member   | Aye Thandar Phyo | 40524297  |
-| Team Member   | Su Yadana Win    | 40524297  |
+| Team Member   | Su Yadana Win    | 40542804  |
 
 ## Member Score
 | Martic No | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
