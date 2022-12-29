@@ -571,4 +571,20 @@ public class IntegrationTest {
         assertEquals(pops.get(0).getPopulation(),589141l);
         // print report
     }
+
+    /**
+     * 32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population.
+     */
+    @Test
+    void testPopulationPeopleLanguage() throws SQLException {
+        // create array list
+        ArrayList<Language> languages = poprpt.getPopulationPeopleLanguage();
+        // check array list is null
+        assertNotNull(languages);
+        /*Check expected data are correct or not*/
+        assertEquals(languages.get(0).getLanguage(),"Chinese");
+        assertEquals(languages.get(0).getPopulation(),119184353900l);
+        assertEquals(languages.get(0).getPercentage(),19.60672);
+        // print report
+    }
 }

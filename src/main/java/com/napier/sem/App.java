@@ -316,10 +316,18 @@ public class App {
         /**
          * 31. The population of a city.
          */
-        // Get population of a district information
+        // Get population of a city information
         ArrayList<Population> popCity = poprpt.getPopulationPeopleInACity();
-        // Extract population of a country
+        // Extract population of a city
         poprpt.printPopulationPeopleInACity(popCity);
+
+        /**
+         * 32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population.
+         */
+        // Get of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest
+        ArrayList<Language> languages = poprpt.getPopulationPeopleLanguage();
+        // Extract population of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest
+        poprpt.printPopulationPeopleLanguage(languages);
 
 
     }
