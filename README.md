@@ -39,7 +39,7 @@ Hello
 
 * Code of Conduct [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/hsuyatikhin-alissa/group2/blob/master/CodeOfConduct.md)
 
-* Code Coverage [![codecov](https://codecov.io/gh/SaiWunnaAung/group4/branch/master/graph/badge.svg?token=GR5UHCYCPW)](https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
+* Code Coverage [![codecov](https://codecov.io/gh/hsuyatikhin-alissa/group2/branch/master/graph/badge.svg?token=GR5UHCYCPW)](https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
 
 # Bug Reporting System
 ![](screenshot/bug_reporting.PNG)
