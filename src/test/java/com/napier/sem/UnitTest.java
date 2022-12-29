@@ -976,18 +976,131 @@ public class UnitTest {
     void printPopulationPeopleInAContinentTest() {
         ArrayList<Population> populations = new ArrayList<>();
         Population population = new Population();
-        population.setPopulation(482993000l);
+        population.setPopulation(3705025700l);
         populations.add(population);
         poprpt.printPopulationPeopleInAContinent(populations);
     }
 
+    /**
+     * 28. The population of a region.
+     */
+    @Test
+    void printPopulationPeopleInARegionNullTest() {
+        poprpt.printPopulationPeopleInARegion(null);
+    }
+
+    @Test
+    void printPopulationPeopleInARegionTestEmpty() {
+        ArrayList<Population> pop = new ArrayList<>();
+        poprpt.printPopulationPeopleInARegion(pop);
+    }
+
+    @Test
+    void printPopulationPeopleInARegionTestContainsNull() {
+        ArrayList<Population> pop = new ArrayList<>();
+        pop.add(null);
+        poprpt.printPopulationPeopleInARegion(pop);
+    }
+
+    @Test
+    void printPopulationPeopleInARegionTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setPopulation(309632000);
+        populations.add(population);
+        poprpt.printPopulationPeopleInARegion(populations);
+    }
 
 
+    /**
+     * 29. The population of a country.
+     */
+
+    @Test
+    void printPopulationPeopleInACountryNullTest() {
+        poprpt.printPopulationPeopleInACountry(null);
+    }
+
+    @Test
+    void printPopulationPeopleInACountryTestEmpty() {
+        ArrayList<Population> pop = new ArrayList<>();
+        poprpt.printPopulationPeopleInACountry(pop);
+    }
+
+    @Test
+    void printPopulationPeopleInACountryTestContainsNull() {
+        ArrayList<Population> pop = new ArrayList<>();
+        pop.add(null);
+        poprpt.printPopulationPeopleInACountry(pop);
+    }
+
+    @Test
+    void printPopulationPeopleInACountryTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setPopulation(59623400);
+        populations.add(population);
+        poprpt.printPopulationPeopleInARegion(populations);
+    }
+
+    /**
+     * 30. The population of a district.
+     */
+    @Test
+    void printPopulationPeopleInADistrictNullTest() {
+        poprpt.printPopulationPeopleInADistrict(null);
+    }
+
+    @Test
+    void printPopulationPeopleInADistrictTestEmpty() {
+        ArrayList<Population> pop = new ArrayList<>();
+        poprpt.printPopulationPeopleInADistrict(pop);
+    }
+
+    @Test
+    void printPopulationPeopleInADistrictTestContainsNull() {
+        ArrayList<Population> pop = new ArrayList<>();
+        pop.add(null);
+        poprpt.printPopulationPeopleInADistrict(pop);
+    }
+
+    @Test
+    void printPopulationPeopleInADistrictTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setPopulation(8547585);
+        populations.add(population);
+        poprpt.printPopulationPeopleInADistrict(populations);
+    }
 
 
+    /**
+     * 31. The population of a city.
+     */
+    @Test
+    void printPopulationPeopleInACityNullTest() {
+        poprpt.printPopulationPeopleInACity(null);
+    }
 
+    @Test
+    void printPopulationPeopleInACityTestEmpty() {
+        ArrayList<Population> pop = new ArrayList<>();
+        poprpt.printPopulationPeopleInACity(pop);
+    }
 
+    @Test
+    void printPopulationPeopleInACityTestContainsNull() {
+        ArrayList<Population> pop = new ArrayList<>();
+        pop.add(null);
+        poprpt.printPopulationPeopleInACity(pop);
+    }
 
-
-
+    @Test
+    void printPopulationPeopleInACityTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setPopulation(589141);
+        populations.add(population);
+        poprpt.printPopulationPeopleInACity(populations);
+    }
 }
