@@ -390,6 +390,7 @@ public class UnitTest {
         ctyrpt.printAllCitiesInACountry(cities);
     }
 
+
     /**
      * 11. Unit tests for all the cities in a district organised by largest population to smallest.
      */
@@ -588,7 +589,7 @@ public class UnitTest {
     }
 
     @Test
-    void pprintTopCitiesInADistrictTestEmpty() {
+    void printTopCitiesInADistrictTestEmpty() {
         ArrayList<City> cities = new ArrayList<>();
         ctyrpt.printTopCitiesInADistrict(cities);
     }
@@ -614,4 +615,379 @@ public class UnitTest {
         cities.add(city);
         ctyrpt.printTopCitiesInADistrict(cities);
     }
+
+    /**
+     * 17. Unit tests for all the capital cities in the world organised by largest population to smallest.
+     */
+
+    @Test
+    void printAllCapitalCitiesInTheWorldNullTest() {
+        cctyrpt.printAllCapitalCitiesInTheWorld(null);
+    }
+
+    @Test
+    void printAllCapitalCitiesInTheWorldTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInTheWorldTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInTheWorldTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Seoul");
+        ccty.setCountry("South Korea");
+        ccty.setPopulation(9981619);
+        capitalCities.add(ccty);
+        cctyrpt.printAllCapitalCitiesInTheWorld(capitalCities);
+    }
+
+
+    /**
+     * 18. Unit tests for all the capital cities in a continent organised by largest population to smallest.
+     */
+
+    @Test
+    void printAllCapitalCitiesInAContinentNullTest() {
+        cctyrpt.printAllCapitalCitiesInAContinent(null);
+    }
+
+    @Test
+    void printAllCapitalCitiesInAContinentTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInAContinentTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInAContinentTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Mumbai (Bombay)");
+        ccty.setCountry("India");
+        ccty.setPopulation(10500000);
+        capitalCities.add(ccty);
+        cctyrpt.printAllCapitalCitiesInAContinent(capitalCities);
+    }
+
+    /**
+     * 19. Unit tests for all the capital cities in a region organised by largest population to smallest.
+     */
+
+
+    @Test
+    void printAllCapitalCitiesInARegionNullTest() {
+        cctyrpt.printAllCapitalCitiesInARegion(null);
+    }
+
+    @Test
+    void printAllCapitalCitiesInARegionTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInARegionTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities);
+    }
+
+    @Test
+    void printAllCapitalCitiesInARegionTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Seoul");
+        ccty.setCountry("South Korea");
+        ccty.setPopulation(9981619);
+        capitalCities.add(ccty);
+        cctyrpt.printAllCapitalCitiesInARegion(capitalCities);
+    }
+
+
+
+
+    /**
+     * 20. Unit tests for the top N populated capital cities in the world where N is provided by the user.
+     */
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldNullTest() {
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(null);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        capitalCities.add(null);
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInTheWorldTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<>();
+        CapitalCity ccty = new CapitalCity();
+        ccty.setName("Seoul");
+        ccty.setCountry("South Korea");
+        ccty.setPopulation(9981619);
+        capitalCities.add(ccty);
+        cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities);
+    }
+
+    /**
+     * 21. Unit test for the top N populated capital cities in a continent where N is provided by the user.
+     */
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInAContinentNullTest() {
+        cctyrpt.printTopNPopulatedCapitalCitiesInAContinent(null);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInAContinentTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<CapitalCity>();
+        cctyrpt.printTopNPopulatedCapitalCitiesInAContinent(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInAContinentTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<CapitalCity>();
+        capitalCities.add(null);
+        cctyrpt.printTopNPopulatedCapitalCitiesInAContinent(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInAContinentTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<CapitalCity>();
+        CapitalCity capitalCity = new CapitalCity();
+        capitalCity.setName("Seoul");
+        capitalCity.setCountry("South Korea");
+        capitalCity.setPopulation(9981619);
+        capitalCities.add(capitalCity);
+        cctyrpt.printTopNPopulatedCapitalCitiesInAContinent(capitalCities);
+    }
+
+    /**
+     * 22. Unit test for the top N populated capital cities in a region where N is provided by the user.
+     */
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInARegionNullTest() {
+        cctyrpt.printTopNPopulatedCapitalCitiesInARegion(null);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInARegionTestEmpty() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<CapitalCity>();
+        cctyrpt.printTopNPopulatedCapitalCitiesInARegion(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInARegionTestContainsNull() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<CapitalCity>();
+        capitalCities.add(null);
+        cctyrpt.printTopNPopulatedCapitalCitiesInARegion(capitalCities);
+    }
+
+    @Test
+    void printTopNPopulatedCapitalCitiesInARegionTest() {
+        ArrayList<CapitalCity> capitalCities = new ArrayList<CapitalCity>();
+        CapitalCity capitalCity = new CapitalCity();
+        capitalCity.setName("Seoul");
+        capitalCity.setCountry("South Korea");
+        capitalCity.setPopulation(9981619);
+        capitalCities.add(capitalCity);
+        cctyrpt.printTopNPopulatedCapitalCitiesInARegion(capitalCities);
+    }
+
+
+    /**
+     * 23. Unit test for The population of people, people living in cities, and people not living in cities in each continent.
+     */
+
+    @Test
+    void printPopulationPeopleInContinentNullTest() {
+        poprpt.printPopulationPeopleInContinent(null);
+    }
+
+    @Test
+    void printPopulationPeopleInContinentTestEmpty() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        poprpt.printPopulationPeopleInContinent(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInContinentTestContainsNull() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        poprpt.printPopulationPeopleInContinent(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInContinentTest() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population population = new Population();
+        population.setName("North America");
+        population.setPopulation(482993000);
+        population.setPopInCity(168250381);
+        population.setPopNotInCity(314742619);
+        populations.add(population);
+        poprpt.printPopulationPeopleInContinent(populations);
+    }
+
+    /**
+     * 24. Unit test for The population of people, people living in cities, and people not living in cities in each region.
+     */
+
+    @Test
+    void printPopulationPeopleInRegionNullTest() {
+        poprpt.printPopulationPeopleInRegion(null);
+    }
+
+    @Test
+    void printPopulationPeopleInRegionTestEmpty() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        poprpt.printPopulationPeopleInRegion(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInRegionTestContainsNull() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        poprpt.printPopulationPeopleInRegion(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInRegionTest() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population population = new Population();
+        population.setName("North America");
+        population.setPopulation(309632000);
+        population.setPopInCity(91321867);
+        population.setPopNotInCity(218310133);
+        populations.add(population);
+        poprpt.printPopulationPeopleInRegion(populations);
+    }
+
+    /**
+     * 25. Unit tests for the population of people, people living in cities, and people not living in cities in each country.
+     */
+    @Test
+    void printPopulationPeopleInCountryNullTest() {
+        poprpt.printPopulationPeopleInCountry(null);
+    }
+
+    @Test
+    void printPopulationPeopleInCountry() {
+        ArrayList<Population> populations = new ArrayList<>();
+        poprpt.printPopulationPeopleInCountry(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInCountryTestContainsNull() {
+        ArrayList<Population> populations = new ArrayList<>();
+        populations.add(null);
+        poprpt.printPopulationPeopleInCountry(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInCountryTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setName("Aruba");
+        population.setPopulation(103000);
+        population.setPopInCity(29034);
+        population.setPopNotInCity(73966);
+        populations.add(population);
+        poprpt.printPopulationPeopleInCountry(populations);
+    }
+
+    /**
+     * 26. Unit tests for the population of the world.
+     */
+    @Test
+    void printPopulationPeopleInTheWorldNullTest() {
+        poprpt.printPopulationPeopleInTheWorld(null);
+    }
+
+    @Test
+    void printPopulationPeopleInTheWorld() {
+        ArrayList<Population> populations = new ArrayList<>();
+        poprpt.printPopulationPeopleInCountry(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInTheWorldTestContainsNull() {
+        ArrayList<Population> populations = new ArrayList<>();
+        populations.add(null);
+        poprpt.printPopulationPeopleInTheWorld(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInTheWorldTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setPopulation(6078749450l);
+        populations.add(population);
+        poprpt.printPopulationPeopleInCountry(populations);
+    }
+
+    /**
+     * 27. Unit tests for the population of a continent.
+     */
+    @Test
+    void PopulationPeopleInAContinentNullTest() {
+        poprpt.printPopulationPeopleInAContinent(null);
+    }
+
+    @Test
+    void printPopulationPeopleInAContinent() {
+        ArrayList<Population> populations = new ArrayList<>();
+        poprpt.printPopulationPeopleInAContinent(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInAContinentTestContainsNull() {
+        ArrayList<Population> populations = new ArrayList<>();
+        populations.add(null);
+        poprpt.printPopulationPeopleInAContinent(populations);
+    }
+
+    @Test
+    void printPopulationPeopleInAContinentTest() {
+        ArrayList<Population> populations = new ArrayList<>();
+        Population population = new Population();
+        population.setPopulation(482993000l);
+        populations.add(population);
+        poprpt.printPopulationPeopleInAContinent(populations);
+    }
+
+
+
+
+
+
+
+
+
+
 }
