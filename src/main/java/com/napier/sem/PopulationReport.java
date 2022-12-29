@@ -70,6 +70,7 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("23. The population of people, people living in cities, and people not living in cities in each continent.");
+        System.out.println();
         //Print report title
         System.out.format("%-35s  %-35s  %-35s  %-35s  %-35s  %-35s", "NAME", "POPULATION", "POPULATION IN CITY", "POPULATION IN CITY PERCENTAGE", "POPULATION NOT IN CITY", "POPULATION NOT IN CITY PERCENTAGE");
         System.out.println("\n");
@@ -110,10 +111,10 @@ public class PopulationReport {
             while (rset.next()) {
                 /* Create population object and set data in setter method */
                 Population population = new Population();
-                population.setName(rset.getString("region"));
-                population.setPopulation(rset.getLong("TotalPopulation"));
-                population.setPopInCity(rset.getLong("populationInCity"));
-                population.setPopNotInCity(rset.getLong("populationNotInCity"));
+                population.setName(rset.getString(1));
+                population.setPopulation(rset.getLong(2));
+                population.setPopInCity(rset.getLong(3));
+                population.setPopNotInCity(rset.getLong(4));
                 // Add population object in populations array list
                 populations.add(population);
             }
@@ -139,6 +140,7 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("24. The population of people, people living in cities, and people not living in cities in each region");
+        System.out.println();
         //Print report title
         System.out.format("%-35s  %-35s  %-35s  %-35s  %-35s  %-35s", "NAME", "POPULATION", "POPULATION IN CITY", "POPULATION IN CITY PERCENTAGE", "POPULATION NOT IN CITY", "POPULATION NOT IN CITY PERCENTAGE");
         System.out.println("\n");
@@ -179,10 +181,10 @@ public class PopulationReport {
             while (rset.next()) {
                 /* Create population object and set data in setter method */
                 Population population = new Population();
-                population.setName(rset.getString("name"));
-                population.setPopulation(rset.getLong("TotalPopulation"));
-                population.setPopInCity(rset.getLong("populationInCity"));
-                population.setPopNotInCity(rset.getLong("populationNotInCity"));
+                population.setName(rset.getString(1));
+                population.setPopulation(rset.getLong(2));
+                population.setPopInCity(rset.getLong(3));
+                population.setPopNotInCity(rset.getLong(4));
                 // Add population object in populations array list
                 populations.add(population);
             }
@@ -208,6 +210,7 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("25. The population of people, people living in cities, and people not living in cities in each country");
+        System.out.println();
         //Print report title
         System.out.format("%-35s  %-35s  %-35s  %-35s  %-35s  %-35s", "NAME", "POPULATION", "POPULATION IN CITY", "POPULATION IN CITY PERCENTAGE", "POPULATION NOT IN CITY", "POPULATION NOT IN CITY PERCENTAGE");
         System.out.println("\n");
@@ -248,7 +251,7 @@ public class PopulationReport {
             while (rset.next())
             {
                 Population population = new Population();
-                population.setPopulation(rset.getLong("Population"));
+                population.setPopulation(rset.getLong(1));
                 populations.add(population);
             }
             return populations;
@@ -272,8 +275,7 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("26. The population of the world.");
-        //Print report title
-//        System.out.format("%s", "POPULATION");
+        System.out.println();
         for (Population population : pops) {
             if (population == null)
                 continue;
@@ -305,7 +307,7 @@ public class PopulationReport {
             while (rset.next())
             {
                 Population population = new Population();
-                population.setPopulation(rset.getLong("Population"));
+                population.setPopulation(rset.getLong(1));
                 populations.add(population);
             }
             return populations;
@@ -329,15 +331,14 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("27. The population of Asia");
-        //Print report title
-        String.format("%-10s  %s", "Continent", "Population");
+        System.out.println();
         for (Population population : pops) {
             if (population == null)
                 continue;
 
             String pworld_string =
                     String.format("%-40s", population.getPopulation());
-            System.out.println("Total Asia Population: "+pworld_string);
+            System.out.println("Total Population of " + continent + ": " + pworld_string);
         }
         System.out.println();
     }
@@ -361,7 +362,7 @@ public class PopulationReport {
             while (rset.next())
             {
                 Population population = new Population();
-                population.setPopulation(rset.getLong("Population"));
+                population.setPopulation(rset.getLong(1));
                 populations.add(population);
             }
             return populations;
@@ -385,14 +386,13 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("28. The population of a region.");
-        //Print report title
-        String.format("%-10s  %s", "Region", "Population");
+        System.out.println();
         for (Population population : pops) {
             if (population == null)
                 continue;
             String pregion_string =
                     String.format("%-40s", population.getPopulation());
-            System.out.println("Total Population of the North America region: "+pregion_string);
+            System.out.println("Total Population of the " + region + " region: "+pregion_string);
         }
         System.out.println();
     }
@@ -416,7 +416,7 @@ public class PopulationReport {
             while (rset.next())
             {
                 Population population = new Population();
-                population.setPopulation(rset.getLong("Population"));
+                population.setPopulation(rset.getLong(1));
                 populations.add(population);
             }
             return populations;
@@ -428,9 +428,9 @@ public class PopulationReport {
     }
 
     /**
-     * Prints a list of population in region.
+     * Prints a list of population of a country.
      *
-     * @param pops The list of population in a region to print.
+     * @param pops The list of population of a country to print.
      */
     public void printPopulationPeopleInACountry(ArrayList<Population> pops) {
         // Check Countries is not null
@@ -440,14 +440,13 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("29. The population of a country.");
-        //Print report title
-        String.format("%-10s  %s", "Country", "Population");
+        System.out.println();
         for (Population population : pops) {
             if (population == null)
                 continue;
             String pcntry_string =
                     String.format("%-40s", population.getPopulation());
-            System.out.println("Total Population of the United Kingdom region: "+pcntry_string);
+            System.out.println("Total Population " + country + ": " + pcntry_string);
         }
         System.out.println();
     }
@@ -471,7 +470,7 @@ public class PopulationReport {
             while (rset.next())
             {
                 Population population = new Population();
-                population.setPopulation(rset.getLong("Population"));
+                population.setPopulation(rset.getLong(1));
                 populations.add(population);
             }
             return populations;
@@ -488,13 +487,14 @@ public class PopulationReport {
      * @param pops The list of population in a region to print.
      */
     public void printPopulationPeopleInADistrict(ArrayList<Population> pops) {
-        // Check Countries is not null
+        // Check Population is not null
         if (pops == null) {
             System.out.println("No population");
             return;
         }
         // Print header
         System.out.println("30. The population of a district.");
+        System.out.println();
         //Print report title
         String.format("%-10s  %s", "District", "Population");
         for (Population population : pops) {
@@ -526,7 +526,7 @@ public class PopulationReport {
             while (rset.next())
             {
                 Population population = new Population();
-                population.setPopulation(rset.getLong("Population"));
+                population.setPopulation(rset.getLong(1));
                 populations.add(population);
             }
             return populations;
@@ -538,9 +538,9 @@ public class PopulationReport {
     }
 
     /**
-     * Prints a list of population in region.
+     * Prints a list of population of a city.
      *
-     * @param pops The list of population in a region to print.
+     * @param pops The list of population of a city to print.
      */
     public void printPopulationPeopleInACity(ArrayList<Population> pops) {
         // Check City is not null
@@ -550,14 +550,75 @@ public class PopulationReport {
         }
         // Print header
         System.out.println("31. The population of a city.");
-        //Print report title
-        String.format("%-10s  %s", "City", "Population");
+        System.out.println();
         for (Population population : pops) {
             if (population == null)
                 continue;
             String pcty_string =
                     String.format("%-40s", population.getPopulation());
-            System.out.println("Total Population of the Boston City: "+pcty_string);
+            System.out.println("Total Population of " + city + ": "+pcty_string);
+        }
+        System.out.println();
+    }
+
+    /**
+     * 32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population.
+     */
+    public ArrayList<Language> getPopulationPeopleLanguage() {
+        try {
+            //Assign connection object to statement variable
+            Statement stmt = con.createStatement();
+            //Write sql retrieve query for report
+            String strSelect =
+                    "SELECT cl.language, sum(cl.percentage*c.population) AS speakerlangugaepop, SUM(c.population*cl.percentage)/(SELECT SUM(population) FROM country) AS worldpercentage "
+                            + "FROM countrylanguage cl, country c "
+                            + "WHERE cl.countrycode=c.code AND cl.language IN ('English','Arabic','Hindi','Chinese','Spanish') "
+                            + "GROUP BY cl.language "
+                            + "ORDER BY speakerlangugaepop DESC";
+            //Create populations arraylist to store population data
+            ArrayList<Language> languages = new ArrayList<Language>();
+            // Run sql retrieve query and assign result to resultSet variable
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Retrieve data from resultSet by using while loop
+            while (rset.next())
+            {
+                Language language = new Language();
+                language.setLanguage(rset.getString(1));
+                language.setPopulation(rset.getLong(2));
+                language.setPercentage(rset.getDouble(3));
+                languages.add(language);
+            }
+            return languages;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of population of languages.
+     *
+     * @param languages The list of population of languages to print.
+     */
+    public void printPopulationPeopleLanguage(ArrayList<Language> languages) {
+        // Check Language is not null
+        if (languages == null) {
+            System.out.println("No population");
+            return;
+        }
+        // Print header
+        System.out.println("32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population so that I can know the number of people who speak the above languages according to the order of the area and the percentage of the world population.");
+        System.out.println();
+        //Print report title
+        System.out.format("%-30s %-50s %-50s", "Language", "Speaker's Language Population", "Percentage of World Population");
+        System.out.println();
+        for (Language language : languages) {
+            if (language == null)
+                continue;
+            String plang_string =
+                    String.format("%-30s %-50s %-50.2f", language.getLanguage(), language.getPopulation(), language.getPercentage());
+            System.out.println(plang_string);
         }
         System.out.println();
     }

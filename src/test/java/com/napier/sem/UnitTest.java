@@ -1103,4 +1103,36 @@ public class UnitTest {
         populations.add(population);
         poprpt.printPopulationPeopleInACity(populations);
     }
+
+    /**
+     * 32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population.
+     */
+    @Test
+    void printPopulationPeopleLangaugeNullTest() {
+        poprpt.printPopulationPeopleLanguage(null);
+    }
+
+    @Test
+    void printprintPopulationPeopleLanguage() {
+        ArrayList<Language> languages = new ArrayList<>();
+        poprpt.printPopulationPeopleLanguage(languages);
+    }
+
+    @Test
+    void printPopulationPeopleLanguageTestContainsNull() {
+        ArrayList<Language> languages = new ArrayList<>();
+        languages.add(null);
+        poprpt.printPopulationPeopleLanguage(languages);
+    }
+
+    @Test
+    void printPopulationPeopleLanguageTest() {
+        ArrayList<Language> languages = new ArrayList<>();
+        Language language = new Language();
+        language.setLanguage("Chinese");
+        language.setPercentage(119184353900l);
+        language.setPercentage(19.60672);
+        languages.add(language);
+        poprpt.printPopulationPeopleLanguage(languages);
+    }
 }
