@@ -608,7 +608,7 @@ public class PopulationReport {
             return;
         }
         // Print header
-        System.out.println("32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population so that I can know the number of people who speak the above languages according to the order of the area and the percentage of the world population.");
+        System.out.println("32. The population of the number of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest, including the percentage of the world population.");
         System.out.println();
         //Print report title
         System.out.format("%-30s %-50s %-50s", "Language", "Speaker's Language Population", "Percentage of World Population");
