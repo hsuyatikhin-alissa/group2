@@ -13,7 +13,7 @@ public class App {
         DBConnect dbcon = new DBConnect();
 
         if(args.length < 1){
-            dbcon.connect("localhost:33060", 30000);
+            dbcon.connect("localhost:33060", 3000);
         }else{
             dbcon.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -209,6 +209,42 @@ public class App {
         ArrayList<CapitalCity> capitalCities3 = cctyrpt.getTopNPopulatedCapitalCitiesInTheWorld();
         // Extract top N populated capital cities in the world
         cctyrpt.printTopNPopulatedCapitalCitiesInTheWorld(capitalCities3);
+
+        /**
+         * 21. The top N populated capital cities in a continent where N is provided by the user.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<CapitalCity> catalCities = cctyrpt.getTNPCapitalCitiesInAContinent();
+        // Extract all cities information in a continent
+        cctyrpt.printTopNPopulatedCapitalCitiesInAContinent(catalCities);
+
+        /**
+         * 22. The top N populated capital cities in a region where N is provided by the user.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<CapitalCity> capiCities = cctyrpt.getTNPCapitalCitiesInARegion();
+        // Extract all cities information in a continent
+        cctyrpt.printTopNPopulatedCapitalCitiesInARegion(capiCities);
+
+        /**
+         * 23. The population of people, people living in cities, and people not living in cities in each continent.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<Population> populations = poprpt.getpopulationoinacontinent();
+        // Extract all cities information in a continent
+        poprpt.printPopulationPeopleInContinent(populations);
+
+        /**
+         * 24. The population of people, people living in cities, and people not living in cities in each region.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<Population> pops = poprpt.getpopulationoinregion();
+        // Extract all cities information in a continent
+        poprpt.printPopulationPeopleInRegion(pops);
 
 
     }

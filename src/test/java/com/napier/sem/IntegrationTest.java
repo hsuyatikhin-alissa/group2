@@ -18,7 +18,7 @@ public class IntegrationTest {
     @BeforeAll
     static void init() {
         db = new DBConnect();
-        db.connect("Localhost:33060", 30000);
+        db.connect("Localhost:33060", 3000);
 
         ctyrpt = new CityReport();
         ctyrpt.setCon(db.getCon());
@@ -317,8 +317,74 @@ public class IntegrationTest {
         // print report
     }
 
+    /**
+     * 21. Integration test for the top N populated capital cities in a continent where N is provided by the user.
+     */
+    @Test
+    void testTNPCapitalCitiesInAContinent() throws SQLException {
+        // create array list
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getTNPCapitalCitiesInAContinent();
+        // check array list is null
+        assertNotNull(capitalCities);
+        /*Check expected data are correct or not*/
+        assertEquals(capitalCities.get(0).getName(),"Mumbai (Bombay)");
+        assertEquals(capitalCities.get(0).getCountry(),"India");
+        assertEquals(capitalCities.get(0).getPopulation(),10500000);
+        // print report
+    }
 
+    /**
+     * 22. Integration test for the top N populated capital cities in a region where N is provided by the user.
+     */
 
+    @Test
+    void testgetTNPCapitalCitiesInARegion() throws SQLException {
+        // create array list
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getTNPCapitalCitiesInARegion();
+        // check array list is null
+        assertNotNull(capitalCities);
+        /*Check expected data are correct or not*/
+        assertEquals(capitalCities.get(0).getName(),"Seoul");
+        assertEquals(capitalCities.get(0).getCountry(),"South Korea");
+        assertEquals(capitalCities.get(0).getPopulation(),9981619);
+        // print report
+    }
+
+    /**
+     * 23. Integration test for The population of people, people living in cities, and people not living in cities in each continent.
+     */
+
+    @Test
+    void testgetpopulationoinacontinent() throws SQLException {
+        // create array list
+        ArrayList<Population> populations = poprpt.getpopulationoinacontinent();
+        // check array list is null
+        assertNotNull(populations);
+        /*Check expected data are correct or not*/
+        assertEquals(populations.get(0).getName(),"North America");
+        assertEquals(populations.get(0).getPopulation(),482993000);
+        assertEquals(populations.get(0).getPopInCity(),168250381);
+        assertEquals(populations.get(0).getPopNotInCity(),314742619);
+        // print report
+    }
+
+    /**
+     * 24. Integration test for The population of people, people living in cities, and people not living in cities in each region.
+     */
+
+    @Test
+    void testgetpopulationoinregion() throws SQLException {
+        // create array list
+        ArrayList<Population> populations = poprpt.getpopulationoinregion();
+        // check array list is null
+        assertNotNull(populations);
+        /*Check expected data are correct or not*/
+        assertEquals(populations.get(0).getName(),"Caribbean");
+        assertEquals(populations.get(0).getPopulation(),38140000);
+        assertEquals(populations.get(0).getPopInCity(),11067550);
+        assertEquals(populations.get(0).getPopNotInCity(),27072450);
+        // print report
+    }
 
 
 
