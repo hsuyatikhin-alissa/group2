@@ -19,12 +19,16 @@ public class CityReport {
      * Variable declarations
      */
 
-    private String continent = "Asia"; //Assign Asia as user input continent.
+    private String continent = "Asia"; //Assign Asia as user's input continent.
 
-    private String country = "United States"; //Assign United States as user input country.
+    private String country = "United States"; //Assign United States as user's input country.
 
     private String region = "Eastern Asia"; //Assign Eastern Asia as user's input region
     private int limit = 5; //Assign 5 as a limit
+
+    private String district = "Noord-Holland"; //Assign Noord-Holland as user's input district
+
+    private String name = "Austria"; //Assign Austria as user's input country
 
 
     /**
@@ -347,18 +351,74 @@ public class CityReport {
         System.out.println();
     }
 
-
-
-
-
-
-
     /**
      * 11. All the cities in a district organised by largest population to smallest.
      */
+    public ArrayList<City> getAllCitiesInADistrict()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.District, city.Population "
+                            + "FROM city, country "
+                            + "WHERE city.CountryCode = country.Code && city.District = '" + district + "'\n"
+                            + "ORDER BY city.Population DESC ";
 
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract cities information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City cty = new City();
+                Country cntry = new Country();
+                cty.setName(rset.getString(1));
+                cntry.setName(rset.getString(2));
+                cty.setDistrict(rset.getString(3));
+                cty.setPopulation(rset.getInt(4));
+                cty.setCountry(cntry);
+                cities.add(cty);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
 
-
+    /**
+     * Prints a list of cities.
+     * @param cities The list of cities and countries to print.
+     */
+    public void printCitiesInADistrict(ArrayList<City> cities)
+    {
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+        // Print header
+        System.out.println("11. All the cities in " + district + " district organised by largest population to smallest");
+        System.out.println();
+        System.out.println(String.format("%-30s %-20s %-20s %s", "Name", "Country", "District", "Population"));
+        // Loop over all cities in the list
+        for (City cty : cities)
+        {
+            if (cty == null)
+                continue;
+            String cty_string =
+                    String.format("%-30s %-20s %-20s %s",
+                            cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());
+            System.out.println(cty_string);
+        }
+        System.out.println();
+    }
 
     /**
      * 12. The top N populated cities in the world where N is provided by the user.
@@ -387,7 +447,7 @@ public class CityReport {
 //            SELECT city.Name, country.Name, country.Continent, city.District, city.Population FROM city JOIN country country ON country.Code = city.CountryCode WHERE country.Continent = "Asia" ORDER BY Population DESC LIMIT 3;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -525,9 +585,6 @@ public class CityReport {
         System.out.println();
     }
 
-
-
-
     /**
      * 14. The top N populated cities in a region where N is provided by the user.
      */
@@ -615,17 +672,148 @@ public class CityReport {
     /**
      * 15. The top N populated cities in a country where N is provided by the user.
      */
+    public ArrayList<City> getTopCitiesInACountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.District, city.Population "
+                            + "FROM city "
+                            + "JOIN country country "
+                            + "ON country.Code = city.CountryCode "
+                            + "WHERE country.Name = '" + name + "'\n"
+                            + "ORDER BY city.Population DESC "
+                            + "LIMIT " + limit + ";";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract cities information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City cty = new City();
+                Country cntry = new Country();
+                cty.setName(rset.getString(1));
+                cntry.setName(rset.getString(2));
+                cty.setDistrict(rset.getString(3));
+                cty.setPopulation(rset.getInt(4));
+                cty.setCountry(cntry);
+                cities.add(cty);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
 
 
+    /**
+     * Prints a list of cities.
+     * @param cities The list of cities to print.
+     */
+    public void printTopCitiesInACountry(ArrayList<City> cities)
+    {
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+        // Print header
+        System.out.println("15. The Top " + limit + " Populated cities in " + name + " country");
+        System.out.println();
+        System.out.println(String.format("%-20s %-30s %-20s %s", "Name", "Country", "District", "Population"));
+        // Loop over all cities in the list
+        for (City cty : cities)
+        {
+            if (cty == null)
+                continue;
+            String cty_string =
+                    String.format("%-20s %-30s %-20s %s",
+                            cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());
+            System.out.println(cty_string);
+        }
+        System.out.println();
+    }
 
 
     /**
      * 16. The top N populated cities in a district where N is provided by the user.
      */
+    public ArrayList<City> getTopCitiesInADistrict()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.District, city.Population "
+                            + "FROM city "
+                            + "JOIN country country "
+                            + "ON country.Code = city.CountryCode "
+                            + "WHERE city.District = '" + district + "'\n"
+                            + "ORDER BY city.Population DESC "
+                            + "LIMIT " + limit + ";";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract cities information
+            ArrayList<com.napier.sem.City> cities = new ArrayList<com.napier.sem.City>();
+            while (rset.next())
+            {
+                com.napier.sem.City cty = new com.napier.sem.City();
+                Country cntry = new Country();
+                cty.setName(rset.getString(1));
+                cntry.setName(rset.getString(2));
+                cty.setDistrict(rset.getString(3));
+                cty.setPopulation(rset.getInt(4));
+                cty.setCountry(cntry);
+                cities.add(cty);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
 
 
-
-
-
+    /**
+     * Prints a list of cities.
+     * @param cities The list of cities to print.
+     */
+    public void printTopCitiesInADistrict(ArrayList<City> cities)
+    {
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+        // Print header
+        System.out.println("16. The Top " + limit + " Populated cities in " + district + " district");
+        System.out.println();
+        System.out.println(String.format("%-30s %-20s %-20s %s", "Name", "Country", "District", "Population"));
+        // Loop over all cities in the list
+        for (City cty : cities)
+        {
+            if (cty == null)
+                continue;
+            String cty_string =
+                    String.format("%-30s %-20s %-20s %s",
+                            cty.getName(), cty.getCountry().getName(), cty.getDistrict(), cty.getPopulation());
+            System.out.println(cty_string);
+        }
+        System.out.println();
+    }
 
 }

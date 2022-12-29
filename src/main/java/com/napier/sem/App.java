@@ -116,9 +116,9 @@ public class App {
          * 9. All the cities in a region organised by largest population to smallest.
          */
 
-        // Get all cities information in a region
+        // Get all cities information in a continent
         ArrayList<City> citiesreg = ctyrpt.getAllCitiesInARegion();
-        // Extract all cities information in a region
+        // Extract all cities information in a continent
         ctyrpt.printAllCitiesInARegion(citiesreg);
 
         /**
@@ -149,18 +149,18 @@ public class App {
          * 13. The top N populated cities in a continent where N is provided by the user.
          */
 
-        // Get top N populated cities in a continent information
+        // Get all cities information in a continent
         ArrayList<City> citiesncon = ctyrpt.getTopNCitiesInAContinent();
-        // Extract top N populated cities in a continent information
+        // Extract all cities information in a continent
         ctyrpt.printTopNCitiesInAContinent(citiesncon);
 
         /**
          * 14. The top N populated cities in a region where N is provided by the user.
          */
 
-        // Get top N populated cities in a region information
+        // Get all cities information in a continent
         ArrayList<City> citiesnreg = ctyrpt.getTopNCitiesInARegion();
-        // Extract top N populated cities in a region information
+        // Extract all cities information in a continent
         ctyrpt.printTopNCitiesInARegion(citiesnreg);
 
         /**
@@ -176,8 +176,47 @@ public class App {
 
 
 
+
+
+
+
+
+
+        /**
+         * 21. The top N populated capital cities in a continent where N is provided by the user.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<CapitalCity> capitalCities = cctyrpt.getTNPCapitalCitiesInAContinent();
+        // Extract all cities information in a continent
+        cctyrpt.printTopNPopulatedCapitalCitiesInAContinent(capitalCities);
+
+        /**
+         * 22. The top N populated capital cities in a region where N is provided by the user.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<CapitalCity> capiCities = cctyrpt.getTNPCapitalCitiesInARegion();
+        // Extract all cities information in a continent
+        cctyrpt.printTopNPopulatedCapitalCitiesInARegion(capiCities);
+
+        /**
+         * 23. The population of people, people living in cities, and people not living in cities in each continent.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<Population> populations = poprpt.getpopulationoinacontinent();
+        // Extract all cities information in a continent
+        poprpt.printPopulationPeopleInContinent(populations);
+
+        /**
+         * 24. The population of people, people living in cities, and people not living in cities in each region.
+         */
+
+        // Get all capital cities information in a continent
+        ArrayList<Population> pops = poprpt.getpopulationoinregion();
+        // Extract all cities information in a continent
+        poprpt.printPopulationPeopleInRegion(pops);
+
     }
-
-
-
 }
