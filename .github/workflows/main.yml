@@ -57,7 +57,7 @@ jobs:
           verbose: true # optional (default = false)
 
   build:
-  name: Build Run in Docker and Deploy Release
+  name: Build and Start Using docker-compose
   runs-on: ubuntu-20.04
   steps:
     - name: Checkout
