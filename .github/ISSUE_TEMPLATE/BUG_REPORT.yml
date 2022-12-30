@@ -26,7 +26,7 @@ body:
       label: What happened?
       description: NullPointerException
       placeholder: Error in Testing
-      value: "A bug happened!"
+      value: "The method name 'printAllCapitalCitiesInTheWorldTestContainsNull' is run in the UnitTest.java, NullPointerException error occurs due to the if statement which is checking for the null value."
     validations:
       required: true
   - type: dropdown
