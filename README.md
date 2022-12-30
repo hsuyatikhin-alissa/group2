@@ -12,12 +12,12 @@
 
 ## Contribution Spreadsheet of the team 
 | Martic No | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
-|-----------|---------------|---------------|---------------|---------------|-------------------|
-| 40516572  | 25            | 25            | 25            | 25            | 25                |    
-| 40516605  | 25            | 25            | 25            | 25            | 25                |    
-| 40524297  | 25            | 25            | 25            | 25            | 25                |     
-| 40542804  | 25            | 25            | 25            | 25            | 25                |     
-| Total     | 100           | 100           | 100           | 100           | 100               |    
+|-----------|---------------|---------------|---------------|---------------|--|
+| 40516572  | 25            | 25            | 25            | 25            |  |    
+| 40516605  | 25            | 25            | 25            | 25            |  |    
+| 40524297  | 25            | 25            | 25            | 25            |  |     
+| 40542804  | 25            | 25            | 25            | 25            |  |     
+| Total     | 100           | 100           | 100           | 100           |  |    
 
 
 ## Workflow Action and Build Badges
@@ -30,8 +30,6 @@
 * Code of Conduct [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/hsuyatikhin-alissa/group2/blob/master/CodeOfConduct.md)
 
 * Code Coverage [![codecov](https://codecov.io/gh/hsuyatikhin-alissa/group2/branch/master/graph/badge.svg?token=GR5UHCYCPW)](https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
-
-# Bug Reporting System
 
 
 ## Link to Our Project from Zube
