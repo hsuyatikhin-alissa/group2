@@ -1,0 +1,66 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - kht-40516572
+  - AyeThandarPhyo
+  - hsuyatikhin-allissa
+  - 1SuYadanaWin
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. 40516572@live.napier.ac.uk
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: SQL Query Error
+      placeholder: SQL Error Disaply
+      value: "A SQL Syntax error occurs because of the missspelling 'city' and not joining 'country' table."
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Brave
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: https://github.com/hsuyatikhin-alissa/group2/blob/master/screenshot/sql%20query%20error.jpeg
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/hsuyatikhin-alissa/group2/blob/master/CodeOfConduct.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
