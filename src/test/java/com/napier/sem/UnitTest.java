@@ -1130,7 +1130,7 @@ public class UnitTest {
         ArrayList<Language> languages = new ArrayList<>();
         Language language = new Language();
         language.setLanguage("Chinese");
-        language.setPercentage(119184353900l);
+        language.setPercentage(1191843539l);
         language.setPercentage(19.60672);
         languages.add(language);
         poprpt.printPopulationPeopleLanguage(languages);
