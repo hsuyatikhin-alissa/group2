@@ -11,13 +11,13 @@
 | Team Member   | Su Yadana Win    | 40542804  |
 
 ## Member Score
-| Martic No | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
-|-----------|---------------|---------------|---------------|---------------|-------------------|
-| 40516572  | 25            | 25            | 25            | 25            | 25                |    
-| 40516605  | 25            | 25            | 25            | 25            | 25                |    
-| 40524297  | 25            | 25            | 25            | 25            | 25                |     
-| 40524297  | 25            | 25            | 25            | 25            | 25                |     
-| Total     | 100           | 100           | 100           | 100           | 100               |    
+| Member          | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
+|-----------------|---------------|---------------|---------------|---------------|-------------------|
+| Kyaw Hsu Thway  | 25            | 25            | 25            | 25            | 25                |    
+| Hsu Yati Khin   | 25            | 25            | 25            | 25            | 25                |    
+| Aye Thandar Phyo | 25            | 25            | 25            | 25            | 25                |     
+| Su Yadana Win   | 25            | 25            | 25            | 25            | 25                |     
+| Total           | 100           | 100           | 100           | 100           | 100               |    
 
 
 ## Workflow Action and Build Badges
