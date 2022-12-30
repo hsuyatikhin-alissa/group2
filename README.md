@@ -10,13 +10,13 @@
 | Team Member   | Aye Thandar Phyo | 40524297  |
 | Team Member   | Su Yadana Win    | 40542804  |
 
-## Member Score
+## Contribution Spreadsheet of the team 
 | Martic No | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
 |-----------|---------------|---------------|---------------|---------------|-------------------|
 | 40516572  | 25            | 25            | 25            | 25            | 25                |    
 | 40516605  | 25            | 25            | 25            | 25            | 25                |    
 | 40524297  | 25            | 25            | 25            | 25            | 25                |     
-| 40524297  | 25            | 25            | 25            | 25            | 25                |     
+| 40542804  | 25            | 25            | 25            | 25            | 25                |     
 | Total     | 100           | 100           | 100           | 100           | 100               |    
 
 
