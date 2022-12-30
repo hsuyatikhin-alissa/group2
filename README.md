@@ -11,13 +11,13 @@
 | Team Member   | Su Yadana Win    | 40542804  |
 
 ## Member Score
-| Member          | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
-|-----------------|---------------|---------------|---------------|---------------|-------------------|
-| Kyaw Hsu Thway  | 25            | 25            | 25            | 25            | 25                |    
-| Hsu Yati Khin   | 25            | 25            | 25            | 25            | 25                |    
-| Aye Thandar Phyo | 25            | 25            | 25            | 25            | 25                |     
-| Su Yadana Win   | 25            | 25            | 25            | 25            | 25                |     
-| Total           | 100           | 100           | 100           | 100           | 100               |    
+| Martic No | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |
+|-----------|---------------|---------------|---------------|---------------|-------------------|
+| 40516572  | 25            | 25            | 25            | 25            | 25                |    
+| 40516605  | 25            | 25            | 25            | 25            | 25                |    
+| 40524297  | 25            | 25            | 25            | 25            | 25                |     
+| 40524297  | 25            | 25            | 25            | 25            | 25                |     
+| Total     | 100           | 100           | 100           | 100           | 100               |    
 
 
 ## Workflow Action and Build Badges
@@ -32,7 +32,7 @@
 * Code Coverage [![codecov](https://codecov.io/gh/hsuyatikhin-alissa/group2/branch/master/graph/badge.svg?token=GR5UHCYCPW)](https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
 
 # Bug Reporting System
-![](screenshot/bug_reporting.PNG)
+
 
 ## Link to Our Project from Zube
 https://zube.io/group-2-3/group-2/w/workspace-1/kanban
