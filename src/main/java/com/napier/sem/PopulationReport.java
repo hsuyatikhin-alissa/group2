@@ -570,7 +570,7 @@ public class PopulationReport {
             Statement stmt = con.createStatement();
             //Write sql retrieve query for report
             String strSelect =
-                    "SELECT cl.language, sum(cl.percentage*c.population) AS speakerlangugaepop, SUM(c.population*cl.percentage)/(SELECT SUM(population) FROM country) AS worldpercentage "
+                    "SELECT cl.language, sum(cl.percentage*c.population)/100 AS speakerlangugaepop, SUM(c.population*cl.percentage)/(SELECT SUM(population) FROM country) AS worldpercentage "
                             + "FROM countrylanguage cl, country c "
                             + "WHERE cl.countrycode=c.code AND cl.language IN ('English','Arabic','Hindi','Chinese','Spanish') "
                             + "GROUP BY cl.language "
