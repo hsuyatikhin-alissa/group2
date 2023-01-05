@@ -31,8 +31,9 @@
 
 * Code of Conduct [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://github.com/hsuyatikhin-alissa/group2/blob/master/CodeOfConduct.md)
 
-* Code Coverage [![codecov](https://codecov.io/gh/hsuyatikhin-alissa/group2/branch/master/graph/badge.svg?token=GR5UHCYCPW)](https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
+[//]: # (* Code Coverage [![codecov]&#40;https://codecov.io/gh/hsuyatikhin-alissa/group2/branch/master/graph/badge.svg?token=GR5UHCYCPW&#41;]&#40;https://app.codecov.io/gh/hsuyatikhin-alissa/group2/tree/master&#41;)
 
+* Code Coverage [![codecov](https://codecov.io/gh/hsuyatikhin-alissa/group2/branch/master/graph/badge.svg?token=0B56AYPUB6)](https://codecov.io/gh/hsuyatikhin-alissa/group2/tree/master)
 
 ## Link to Our Project from Zube
 https://zube.io/group-2-3/group-2/w/workspace-1/kanban
