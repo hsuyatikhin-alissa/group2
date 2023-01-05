@@ -1128,7 +1128,7 @@ public class UnitTest {
         Language language = new Language();
         language.setLanguage("Chinese");
         language.setPercentage(1191843539l);
-        language.setPercentage(19.61);
+        language.setPercentage(19.60672);
         languages.add(language);
         poprpt.printPopulationPeopleLanguage(languages);
     }

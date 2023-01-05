@@ -584,7 +584,7 @@ public class IntegrationTest {
         /*Check expected data are correct or not*/
         assertEquals(languages.get(0).getLanguage(),"Chinese");
         assertEquals(languages.get(0).getPopulation(),1191843539l);
-        assertEquals(languages.get(0).getPercentage(),19.61);
+        assertEquals(languages.get(0).getPercentage(),19.60672);
         // print report
     }
 }
