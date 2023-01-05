@@ -1,6 +1,5 @@
 package com.napier.sem;
 
-import java.sql.*;
 import java.util.ArrayList;
 
 public class App {
@@ -50,7 +49,6 @@ public class App {
         /**
          * 2. All the countries in a continent organised by largest population to smallest.
          */
-
         // Get all countries information in a continent
         ArrayList<Country> countriescon = cntryrpt.getAllCountriesInAContinent();
         // Extract all countries information in a continent
@@ -60,7 +58,6 @@ public class App {
         /**
          * 3. All the countries in a region organised by largest population to smallest.
          */
-
         // Get all countries information in a region
         ArrayList<Country> countriesreg = cntryrpt.getAllCountriesInARegion();
         // Extract all countries information in a region
@@ -70,7 +67,6 @@ public class App {
         /**
          * 4. The top N populated countries in the world where N is provided by the user.
          */
-
         // Get top N populated countries in the world information in a continent
         ArrayList<Country> countriestwor = cntryrpt.getTopNCountriesInTheWorld();
         // Extract top N populated countries in the world information in a continent
@@ -80,7 +76,6 @@ public class App {
         /**
          * 5. The top N populated countries in a continent where N is provided by the user.
          */
-
         // Get top N populated countries in a continent information in a continent
         ArrayList<Country> countriestcon = cntryrpt.getTopNCountriesInAContinent();
         // Extract top N populated countries in a continent information in a continent
@@ -90,7 +85,6 @@ public class App {
         /**
          * 6. The top N populated countries in a region where N is provided by the user.
          */
-
         // Get top N populated countries in a region information
         ArrayList<Country> countriestreg = cntryrpt.getTopNPopulatedCountriesInARegion();
         // Extract top N populated countries in a region information
@@ -100,7 +94,6 @@ public class App {
         /**
          * 7. All the cities in the world organised by largest population to smallest.
          */
-
         // Get all cities information in the world
         ArrayList<City> citieswor = ctyrpt.getAllCitiesInTheWorld();
         // Extract all cities information in the world
@@ -110,7 +103,6 @@ public class App {
         /**
          * 8. All the cities in a continent organised by largest population to smallest.
          */
-
         // Get all cities information in a continent
         ArrayList<City> citiescon = ctyrpt.getAllCitiesInAContinent();
         // Extract all cities information in a continent
@@ -119,7 +111,6 @@ public class App {
         /**
          * 9. All the cities in a region organised by largest population to smallest.
          */
-
         // Get all cities information in a continent
         ArrayList<City> citiesreg = ctyrpt.getAllCitiesInARegion();
         // Extract all cities information in a continent
@@ -128,7 +119,6 @@ public class App {
         /**
          * 10. All the cities in a country organised by largest population to smallest.
          */
-
         // Get all cities information in a continent
         ArrayList<City> citiescou = ctyrpt.getAllCitiesInACountry();
         // Extract all cities information in a continent
@@ -145,7 +135,6 @@ public class App {
         /**
          * 12. The top N populated cities in the world where N is provided by the user.
          */
-
         // Get top N populated cities in the world information
         ArrayList<City> citiestwor = ctyrpt.getTopNPopulatedCitiesInTheWorld();
         // Extract top N populated countries in the world information
@@ -155,7 +144,6 @@ public class App {
         /**
          * 13. The top N populated cities in a continent where N is provided by the user.
          */
-
         // Get all cities information in a continent
         ArrayList<City> citiesncon = ctyrpt.getTopNCitiesInAContinent();
         // Extract all cities information in a continent
@@ -164,7 +152,6 @@ public class App {
         /**
          * 14. The top N populated cities in a region where N is provided by the user.
          */
-
         // Get all cities information in a continent
         ArrayList<City> citiesnreg = ctyrpt.getTopNCitiesInARegion();
         // Extract all cities information in a continent
@@ -178,7 +165,6 @@ public class App {
         // Extract all cities information in a country
         ctyrpt.printTopCitiesInACountry(citiesncntry);
 
-
         /**
          * 16. The top N populated cities in a district where N is provided by the user.
          */
@@ -187,11 +173,9 @@ public class App {
         // Extract all cities information in a district
         ctyrpt.printTopCitiesInADistrict(citiesndist);
 
-
         /**
          * 17. All the capital cities in the world organised by largest population to smallest.
          */
-
         // Get all capital cities information in the world
         ArrayList<CapitalCity> capitalCities = cctyrpt.getAllCapitalCitiesInTheWorld();
         // Extract all capital cities information in the world
@@ -200,7 +184,6 @@ public class App {
         /**
          * 18. All the capital cities in a continent organised by largest population to smallest.
          */
-
         // Get all capital cities information in a continent
         ArrayList<CapitalCity> capitalCities1 = cctyrpt.getAllCapitalCitiesInAContinent();
         // Extract all capital cities information in a continent
@@ -209,17 +192,14 @@ public class App {
         /**
          * 19. All the capital cities in a region organised by largest population to smallest.
          */
-
         // Get all capital cities information in a region
         ArrayList<CapitalCity> capitalCities2 = cctyrpt.getAllCapitalCitiesInARegion();
         // Extract all capital cities information in a region
         cctyrpt.printAllCapitalCitiesInARegion(capitalCities2);
 
-
         /**
          * 20. The top N populated capital cities in the world where N is provided by the user.
          */
-
         // Get top N populated capital cities in the world
         ArrayList<CapitalCity> capitalCities3 = cctyrpt.getTopNPopulatedCapitalCitiesInTheWorld();
         // Extract top N populated capital cities in the world
@@ -228,7 +208,6 @@ public class App {
         /**
          * 21. The top N populated capital cities in a continent where N is provided by the user.
          */
-
         // Get all capital cities information in a continent
         ArrayList<CapitalCity> catalCities = cctyrpt.getTNPCapitalCitiesInAContinent();
         // Extract all cities information in a continent
@@ -237,7 +216,6 @@ public class App {
         /**
          * 22. The top N populated capital cities in a region where N is provided by the user.
          */
-
         // Get all capital cities information in a continent
         ArrayList<CapitalCity> capiCities = cctyrpt.getTNPCapitalCitiesInARegion();
         // Extract all cities information in a continent
@@ -246,7 +224,6 @@ public class App {
         /**
          * 23. The population of people, people living in cities, and people not living in cities in each continent.
          */
-
         // Get all capital cities information in a continent
         ArrayList<Population> populations = poprpt.getpopulationoinacontinent();
         // Extract all cities information in a continent
@@ -255,7 +232,6 @@ public class App {
         /**
          * 24. The population of people, people living in cities, and people not living in cities in each region.
          */
-
         // Get all capital cities information in a continent
         ArrayList<Population> pops = poprpt.getpopulationoinregion();
         // Extract all cities information in a continent
@@ -264,7 +240,6 @@ public class App {
         /**
          * 25. The population of people, people living in cities, and people not living in cities in each country.
          */
-
         // Get population information in each country
         ArrayList<Population> popcoun = poprpt.getPopulationPeopleInCountry();
         // Extract population information in each country
@@ -273,7 +248,6 @@ public class App {
         /**
          * 26. The population of the world.
          */
-
         // Get population of the world information.
         ArrayList<Population> popwor = poprpt.getPopulationPeopleInTheWorld();
         // Extract population of the world information.
@@ -282,7 +256,6 @@ public class App {
         /**
          * 27. The population of a continent.
          */
-
         // Get population of a continent information.
         ArrayList<Population> popcon = poprpt.getPopulationPeopleInAContinent();
         // Extract population of a continent information.
@@ -312,7 +285,6 @@ public class App {
         // Extract population of a country
         poprpt.printPopulationPeopleInADistrict(popDist);
 
-
         /**
          * 31. The population of a city.
          */
@@ -328,8 +300,5 @@ public class App {
         ArrayList<Language> languages = poprpt.getPopulationPeopleLanguage();
         // Extract population of people who speak Chinese, English, Hindi, Spanish, Arabic, from greatest number to smallest
         poprpt.printPopulationPeopleLanguage(languages);
-
-
     }
-
 }

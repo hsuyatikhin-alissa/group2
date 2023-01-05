@@ -1,15 +1,32 @@
 package com.napier.sem;
 
+/**
+ * Represent language
+ */
 public class Language {
-
+    /**
+     * Country Code
+     */
     private String CountryCode;
 
+    /**
+     * Language
+     */
     private String Language;
 
+    /**
+     * IsOfficial
+     */
     private String IsOfficial;
 
+    /**
+     * Population
+     */
     private long Population;
 
+    /**
+     * Percentage
+     */
     private double Percentage;
 
     public String getCountryCode() {
