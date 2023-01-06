@@ -19,6 +19,7 @@
 | Su Yadana Win     | 0.25            | 0.25           | 0.25            | 0.25           | 0.25     |
 
 
+
 ## Workflow Action and Build Badges
 * WorkFlow Action ![workflow](https://github.com/hsuyatikhin-alissa/group2/actions/workflows/main.yml/badge.svg)
 
@@ -74,3 +75,5 @@ https://zube.io/group-2-3/group-2/w/workspace-1/kanban
 | 30 | The population of a district.                                                                                                                                         | Yes | ![](screenshot/issue-30.png) |
 | 31 | The population of a city.                                                                                                                                             | Yes | ![](screenshot/issue-31.png) |
 | 32 | The number of people who speak the Chinese,English,Hindi,Spanish,Arabic languages from greatest number to smallest, including the percentage of the world population. | Yes | ![](screenshot/issue-32.png) |
+
+
