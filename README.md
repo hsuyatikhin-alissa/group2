@@ -23,7 +23,7 @@
 ## Workflow Action and Build Badges
 * WorkFlow Action ![workflow](https://github.com/hsuyatikhin-alissa/group2/actions/workflows/main.yml/badge.svg)
 
-* Master  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=master)
+* Master  Build  ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=master)
 
 * Develop  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=develop)
 
