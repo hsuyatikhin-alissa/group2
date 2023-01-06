@@ -1,4 +1,4 @@
-name: Bug Report1
+name: Bug Report4
 description: File a bug report
 title: "[Bug]: "
 labels: ["bug", "triage"]
@@ -24,9 +24,9 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: NullPointerException
-      placeholder: Error in Testing
-      value: "The method name 'printAllCapitalCitiesInTheWorldTestContainsNull' is run in the UnitTest.java, NullPointerException error occurs due to the if statement which is checking for the null value."
+      description: Version error in pom.xml file
+      placeholder: unsupported Jacoco version error in pom.xml
+      value: "The former version '0.81' of the Jacoco is not supported in the current Maven. Therefore, the updated suitable version '0.8.8' is chosen."
     validations:
       required: true
   - type: dropdown
@@ -54,7 +54,7 @@ body:
     id: logs
     attributes:
       label: Relevant log output
-      description: https://github.com/hsuyatikhin-alissa/group2/blob/master/screenshot/bug%20error%20ss.png
+      description: https://github.com/hsuyatikhin-alissa/group2/blob/master/screenshot/pom-ver-err.png
       render: shell
   - type: checkboxes
     id: terms

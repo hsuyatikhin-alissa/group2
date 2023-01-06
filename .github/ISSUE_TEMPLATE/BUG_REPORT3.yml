@@ -1,4 +1,4 @@
-name: Bug Report1
+name: Bug Report3
 description: File a bug report
 title: "[Bug]: "
 labels: ["bug", "triage"]
@@ -24,9 +24,9 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: NullPointerException
-      placeholder: Error in Testing
-      value: "The method name 'printAllCapitalCitiesInTheWorldTestContainsNull' is run in the UnitTest.java, NullPointerException error occurs due to the if statement which is checking for the null value."
+      description: The incorrect calculation
+      placeholder: Incorrect output value
+      value: "The population of speaker's language is incorrect. Therefore, the population value needs to be divided by 100."
     validations:
       required: true
   - type: dropdown
@@ -54,7 +54,7 @@ body:
     id: logs
     attributes:
       label: Relevant log output
-      description: https://github.com/hsuyatikhin-alissa/group2/blob/master/screenshot/bug%20error%20ss.png
+      description: https://github.com/hsuyatikhin-alissa/group2/blob/master/screenshot/outputvalue.jpeg
       render: shell
   - type: checkboxes
     id: terms
