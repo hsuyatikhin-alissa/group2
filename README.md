@@ -23,9 +23,9 @@
 ## Workflow Action and Build Badges
 * WorkFlow Action ![workflow](https://github.com/hsuyatikhin-alissa/group2/actions/workflows/main.yml/badge.svg)
 
-* Master  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/A%20workflow%20for%20my%20Hello%20World%20App?style=flat-square/master)
+* Master  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=master)
 
-* Develop  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/A%20workflow%20for%20my%20Hello%20World%20App?style=flat-square/develop)
+* Develop  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=develop)
 
 * Apache License [![LICENSE](https://img.shields.io/github/license/hsuyatikhin-alissa/group2.svg?style=flat-square)](https://github.com/hsuyatikhin-alissa/group2/blob/master/LICENSE)
 
