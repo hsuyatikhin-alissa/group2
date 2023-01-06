@@ -25,7 +25,7 @@
 
 * Master  Build  ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=master)
 
-* Develop  Build  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=develop)
+* Develop  Build  ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/hsuyatikhin-alissa/group2/main.yml?branch=develop)
 
 * Apache License [![LICENSE](https://img.shields.io/github/license/hsuyatikhin-alissa/group2.svg?style=flat-square)](https://github.com/hsuyatikhin-alissa/group2/blob/master/LICENSE)
 
